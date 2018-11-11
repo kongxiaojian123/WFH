@@ -3,9 +3,46 @@
     "pages/index/index"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundColor":"#f1f1f1",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "WFH小程序",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#d3d5d9",
+    "selectedColor": "#ff4b57",
+    "backgroundColor": "#363f51",
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/icon_home.png",
+        "selectedIconPath": "image/icon_home_selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现",
+        "iconPath": "image/icon_find.png",
+        "selectedIconPath": "image/icon_find_selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "返现",
+        "iconPath": "image/icon_rebate.png",
+        "selectedIconPath": "image/icon_rebate_selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "购物车",
+        "iconPath": "image/icon_cart.png",
+        "selectedIconPath": "image/icon_cart_selected.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "image/icon_mine.png",
+        "selectedIconPath": "image/icon_mine_selected.png"
+      }
+    ]
   }
 }
