@@ -1,4 +1,5 @@
 @import '/common/wxss/color.wxss';
+@import '/common/wxss/icon.wxss';
 page{
   background: var(--color-background);
 }

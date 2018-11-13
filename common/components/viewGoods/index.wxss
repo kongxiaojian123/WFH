@@ -1,0 +1,4 @@
+.view-goods{
+  height: 200vh;
+  background: #ccc;
+}

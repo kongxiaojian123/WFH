@@ -1,0 +1,3 @@
+<view class="view-goods">
+  <bar-filter filterIndex="{{filterIndex}}" bind:selectFilter="selectFilter"/>
+</view>
