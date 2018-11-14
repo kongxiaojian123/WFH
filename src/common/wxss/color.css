@@ -1,0 +1,11 @@
+view,page{
+  --color-foreground: #fff;
+  --color-background: #f1f1f1;
+  --color-text: #363f51;
+  --color-text-sub: #96a1b5;
+  --color-text-selected: #ff4b57;
+  --color-text-tips: var(--text-selected);
+  --color-tab-text-selected: var(--text-selected);
+  --color-tab-text: #d3d5d9;
+  --color-tab-background: #363f51;
+}

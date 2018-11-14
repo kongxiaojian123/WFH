@@ -1,6 +1,0 @@
-{
-    "usingComponents": {
-      "bar-menu": "/common/components/barMenu/index",
-      "view-goods": "/common/components/viewGoods/index"
-    }
-} 

@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "bar-filter": "/common/components/barFilter/index"
-  }
-}

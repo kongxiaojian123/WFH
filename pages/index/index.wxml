@@ -1,8 +1,0 @@
-<!--index.wxml-->
-<view class="app">
-  <bar-menu menuIndex="{{menuIndex}}" bind:selectMenu="selectMenu"/>
-  <block wx:if="{{menuIndex===0}}">
-  111
-  </block>
-  <view-goods wx:elif="{{menuIndex===1}}"/>
-</view>
