@@ -71,7 +71,7 @@
 <style scoped>
   .tips-broadcast{
     position: relative;
-    width: 650rpx;
+    width: 660rpx;
     padding: 24rpx 10rpx 24rpx 64rpx;
     height: 40rpx;
     line-height: 40rpx;
