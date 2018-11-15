@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bar">
     <span class='filter-bar-span'></span>
     <div class="filter-bar">
       <p v-for="(item,index) of filterType" :key="index"
@@ -79,6 +79,8 @@
     border-top: 5rpx solid var(--color-background);
     font-size: 28rpx;
     font-weight: bold;
+    box-shadow: 0 3rpx 7rpx var(--color-view-shadow);
+    z-index: 5;
     view{
       flex: auto;
       position: relative;

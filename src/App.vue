@@ -16,6 +16,8 @@ export default {
   @import 'common/wxss/color.css';
   @import 'common/wxss/icon.css';
   page{
+    font-size: 26rpx;
     background: var(--color-background);
+    color: var(--color-text);
   }
 </style>

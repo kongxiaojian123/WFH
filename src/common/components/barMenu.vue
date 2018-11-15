@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bar">
     <span class='menu-span'></span>
     <div class="menu">
       <p v-for="(item,index) of menuType" :key="index" :class="{'selected':index===menuIndex}" @click="selectMenu(index)">{{item}}</p>
@@ -51,6 +51,7 @@
     font-size: 34rpx;
     font-weight: bold;
     background: var(--color-foreground);
+    box-shadow: 0 0 5rpx var(--color-view-shadow);
     z-index: 10;
     p{
       flex: auto;

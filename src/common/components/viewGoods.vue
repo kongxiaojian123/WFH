@@ -1,15 +1,17 @@
 <template>
-  <div class="view-goods">
+  <div class="view view-goods">
     <bar-filter :filterIndex="filterIndex" @selectFilter="selectFilter"/>
+    <tips-broadcast/>
   </div>
 </template>
 
 <script>
   import BarFilter from './barFilter.vue'
+  import TipsBroadcast from './tipsBroadcast.vue'
   export default {
     name: 'viewGoods',
     components: {
-      BarFilter
+      BarFilter, TipsBroadcast
     },
     props: {
     },
@@ -29,7 +31,5 @@
 
 <style scoped>
 .view-goods{
-  height: 2000rpx;
-  background: var(--color-text-selected);
 }
 </style>
