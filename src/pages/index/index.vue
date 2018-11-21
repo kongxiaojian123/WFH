@@ -1,9 +1,7 @@
 <template>
   <div class="container" @click="">
     <bar-menu :menuIndex="menuIndex" @selectMenu="selectMenu"/>
-    <template v-if="menuIndex===0">
-      111
-    </template>
+    <view-recommend v-if="menuIndex===0"/>
     <view-goods v-else-if="menuIndex===1"/>
   </div>
 </template>
@@ -11,9 +9,10 @@
 <script>
 import BarMenu from '../../common/components/barMenu.vue'
 import ViewGoods from '../../common/components/viewGoods.vue'
+import ViewRecommend from '../../common/components/viewRecommend'
 export default {
   components: {
-    BarMenu, ViewGoods
+    BarMenu, ViewGoods,ViewRecommend
   },
   data () {
     return {

@@ -5,6 +5,7 @@ view,page{
   --color-text-sub: #96a1b5;
   --color-text-selected: #ff4b57;
   --color-tab-text: #d3d5d9;
+  --color-card-border: #d3d5d9;
   --color-view-shadow: rgba(200,200,200,.3);
   --color-text-tips: var(--text-selected);
   --color-tab-text-selected: var(--text-selected);

@@ -16,7 +16,10 @@
     },
     data () {
       return {
-        broadcastData: null,
+        broadcastData: [
+          {message: 111},
+          {message: 222}
+        ],
         broadcastIndex: 0,
         broadcastAnimation: false,
         switchBroadcast: false
@@ -43,12 +46,6 @@
       }
     },
     created () {
-      setTimeout(() => {
-        this.broadcastData = [
-          {message: 111},
-          {message: 222}
-        ]
-      }, 1000)
     },
     methods: {
       broadcastAnimationEnd (index) {
