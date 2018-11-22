@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/index/main"
+    "pages/index/main",
+    "pages/goods/main"
   ],
   "window":{
     "backgroundColor":"#f1f1f1",

@@ -1,11 +1,11 @@
 <template>
-  <div class="item item-recommend" @click="jumpPage(goodsData.info.product_id)">
+  <div class="item item-goods" @click="jumpPage(goodsData.info.product_id)">
     <span class="item-image" :style="{'background-image':'url('+goodsData.info.product_img+')'}" :data-index="goodsData.index<=5?goodsData.index:''"></span>
     <div class="item-info">
       <p class="item-name">{{goodsData.info.title}}</p>
       <p class="item-desc">{{goodsData.info.abstract}}</p>
       <p class="item-price">{{goodsData.info.price}}<span v-if="goodsData.info.rebate_price">返利￥{{goodsData.info.rebate_price}}</span></p>
-      <p class="item-data">销量{{goodsData.info.sale_volume}}  |  {{goodsData.info.goos_evaluation*100}}%好评</p>
+      <p class="item-data">{{goodsData.info.goos_evaluation*100}}%好评</p>
     </div>
   </div>
 </template>
@@ -33,32 +33,37 @@
 </script>
 
 <style scoped>
-.item-recommend{
+.item-goods{
   position: relative;
-  width: 100%;
-  height: 220rpx;
+  width: 360rpx;
+  height: 480rpx;
+  border-radius: 7rpx;
+  background: var(--color-foreground);
+  margin-bottom: 10rpx;
   &:before{
     content: '';
     position: absolute;
-    top: 0;
-    left: 1%;
-    width: 98%;
+    top: 310rpx;
+    left: 0;
+    width: 100%;
     height: 1rpx;
     background: var(--color-card-border);
+    border-bottom: 1rpx solid var(--color-foreground);
   }
   .item-image{
     position: absolute;
-    top: 20rpx;
-    left: 25rpx;
-    width: 180rpx;
-    height: 180rpx;
+    top: 43rpx;
+    left: 50%;
+    width: 220rpx;
+    height: 235rpx;
+    margin-left: -110rpx;
     overflow: hidden;
     background:var(--color-card-border) no-repeat center;
     background-size: cover;
     border-radius: 9rpx;
     &[data-index]:not([data-index=""]){
       &:before{
-        content: '';
+        /*content: '';*/
         position: absolute;
         top: -38rpx;
         left: -38rpx;
@@ -68,7 +73,7 @@
         transform:rotateZ(-45deg);
       }
       &:after{
-        content: attr(data-index);
+        /*content: attr(data-index);*/
         position: absolute;
         font-size: 18rpx;
         width: 34rpx;
@@ -83,12 +88,12 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 30rpx 25rpx 30rpx 225rpx;
+    padding: 320rpx 15rpx 20rpx 15rpx;
     box-sizing: border-box;
     .item-name{
-      font-size: 26rpx;
-      line-height: 36rpx;
-      height: 70rpx;
+      font-size: 24rpx;
+      line-height: 29rpx;
+      height: 55rpx;
       font-weight: bold;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -100,8 +105,8 @@
       display: box;
     }
     .item-desc{
-      padding-top: 5rpx;
-      padding-bottom: 10rpx;
+      padding-top: 10rpx;
+      padding-bottom: 5rpx;
       line-height: 36rpx;
       font-size: 20rpx;
       color: var(--color-text-sub);
@@ -109,25 +114,25 @@
     .item-price{
       position: relative;
       display: inline-block;
-      font-size: 36rpx;
+      font-size: 30rpx;
       font-weight: bold;
       color: var(--color-text-selected);
       &:before{
         content: '￥';
-        font-size: 20rpx;
+        font-size: 18rpx;
       }
       span{
         position: absolute;
         top: 50%;
         left: 100%;
-        height: 26rpx;
+        height: 24rpx;
         white-space: nowrap;
         margin-left: 5rpx;
         margin-top: -13rpx;
         padding: 0 9rpx;
         border-radius: 9rpx;
-        font-size: 20rpx;
-        line-height: 26rpx;
+        font-size: 17rpx;
+        line-height: 24rpx;
         font-weight: normal;
         background: var(--color-text-selected);
         color: var(--color-foreground);
@@ -135,9 +140,9 @@
     }
     .item-data{
       position: absolute;
-      bottom: 30rpx;
-      right: 25rpx;
-      font-size: 20rpx;
+      bottom: 20rpx;
+      right: 15rpx;
+      font-size: 18rpx;
       white-space: nowrap;
       color: var(--color-text-sub);
     }

@@ -18,7 +18,7 @@
         goodsList:[
           {
             "product_id": "产品id",
-            "product_img": "产品图片",
+            "product_img": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
             "sale_volume": "1000",
             "title": "商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称",
             "abstract": "商品简介",
@@ -28,7 +28,7 @@
           },
           {
             "product_id": "产品id",
-            "product_img": "产品图片",
+            "product_img": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
             "sale_volume": "1000",
             "title": "商品名称",
             "abstract": "商品简介",

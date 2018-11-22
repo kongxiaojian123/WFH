@@ -2,16 +2,18 @@
   <div class="view view-goods">
     <bar-filter :filterIndex="filterIndex" @selectFilter="selectFilter"/>
     <tips-broadcast/>
+    <list-goods/>
   </div>
 </template>
 
 <script>
   import BarFilter from './barFilter.vue'
   import TipsBroadcast from './tipsBroadcast.vue'
+  import ListGoods from './listGoods'
   export default {
     name: 'viewGoods',
     components: {
-      BarFilter, TipsBroadcast
+      BarFilter, TipsBroadcast,ListGoods
     },
     props: {
     },
