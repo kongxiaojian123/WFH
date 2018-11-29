@@ -42,13 +42,14 @@
   width: 100%;
   height: 360rpx;
   margin-bottom: 10rpx;
+  background: var(--color-card-border);
   .slider-item{
     position: relative;
     p{
       position: absolute;
       width: 100%;
       height: 100%;
-      background: var(--color-card-border) no-repeat center;
+      background: no-repeat center;
       background-size: cover;
     }
   }
