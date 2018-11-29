@@ -2,7 +2,7 @@
   <div class="item item-info" :class="['type'+type]">
       <p class="item-name">{{info.title}}</p>
       <p class="item-desc">{{info.abstract}}</p>
-      <p class="item-price">{{info.price}}<span v-if="info.rebate_price" class="rebate-price">返利￥{{info.rebate_price}}</span><template v-if="info.rebate&&info.rebate.length"><span v-for="item of info.rebate">{{item.name}}</span></template></p>
+      <p class="item-price">{{info.price}}<span v-if="info.rebate_price" class="rebate-price">返利￥{{info.rebate_price}}</span><template v-if="info.rebate&&info.rebate.length"><span v-for="(item,index) of info.rebate" :key="index">{{item.name}}</span></template></p>
       <p class="item-data">{{info.goos_evaluation*100}}%好评</p>
       <slot/>
   </div>
