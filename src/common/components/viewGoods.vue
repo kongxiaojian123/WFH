@@ -11,7 +11,10 @@
   import TipsBroadcast from './tipsBroadcast.vue'
   import ListGoods from './listGoods'
   export default {
-    name: 'viewGoods',
+    onUnload(){
+    },
+    onLoad () {
+    },
     components: {
       BarFilter, TipsBroadcast,ListGoods
     },

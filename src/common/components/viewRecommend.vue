@@ -11,7 +11,10 @@
   import SlideBanner from './slideBanner'
   import ListRecommend from './listRecommend'
   export default {
-    name: 'viewRecommend',
+    onUnload(){
+    },
+    onLoad () {
+    },
     components: {
       TipsBroadcast,SlideBanner,ListRecommend
     },

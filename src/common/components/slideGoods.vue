@@ -8,7 +8,10 @@
 
 <script>
   export default {
-    name: 'slideBanner',
+    onUnload(){
+    },
+    onLoad () {
+    },
     components: {
     },
     props: {

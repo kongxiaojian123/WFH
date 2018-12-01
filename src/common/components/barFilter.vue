@@ -16,7 +16,10 @@
 
 <script>
   export default {
-    name: 'barFilter',
+    onUnload(){
+    },
+    onLoad () {
+    },
     props: {
       filterType: {
         type: Array,

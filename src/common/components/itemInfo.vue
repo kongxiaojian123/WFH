@@ -10,6 +10,10 @@
 
 <script>
   export default {
+    onUnload(){
+    },
+    onLoad () {
+    },
     components: {
     },
     props: [

@@ -7,7 +7,10 @@
 <script>
   import ItemGoods from './itemGoods'
   export default {
-    name: 'listRecommend',
+    onUnload(){
+    },
+    onLoad () {
+    },
     components: {
       ItemGoods,
     },

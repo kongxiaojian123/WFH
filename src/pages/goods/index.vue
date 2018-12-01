@@ -2,20 +2,31 @@
   <div v-if="goodData" class="container" @click="">
     <slide-goods/>
     <item-info :type="2" :info="goodData">
-      <p class="add-btn">加入购物车</p>
+      <p class="add-btn" @click="setShopcart(true)">加入购物车</p>
     </item-info>
+    <item-spec :info="goodData" @setShopcart="setShopcart" @setParams="setParams"></item-spec>
+    <card-shopcart v-if="shopcart" @close="setShopcart"></card-shopcart>
   </div>
 </template>
 
 <script>
 import SlideGoods from '../../common/components/SlideGoods.vue';
 import ItemInfo from '../../common/components/itemInfo.vue';
+import ItemSpec from '../../common/components/itemSpec.vue';
+import CardShopcart from '../../common/components/cardShopcart.vue';
 export default {
+  onUnload(){
+    this.setShopcart();
+    this.setParams();
+  },
+  onLoad () {
+  },
   components: {
-    SlideGoods,ItemInfo
+    SlideGoods,ItemInfo,ItemSpec,CardShopcart
   },
   data () {
     return {
+      shopcart:false,
       goodData:{
         "product_id": "产品id",
         "product_img": [
@@ -75,8 +86,14 @@ export default {
     }
   },
   methods: {
-  },
-  created () {
+    setShopcart(val){
+      // 打开购物车面板
+      this.shopcart = val||false;
+    },
+    setParams(){
+      // 打开参数面板
+      console.log(22);
+    }
   }
 }
 </script>

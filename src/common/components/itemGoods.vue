@@ -8,6 +8,10 @@
 <script>
   import ItemInfo from './itemInfo.vue';
   export default {
+    onUnload(){
+    },
+    onLoad () {
+    },
     components: {
       ItemInfo,
     },

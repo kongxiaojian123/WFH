@@ -9,7 +9,10 @@
 
 <script>
   export default {
-    name: 'barMenu',
+    onUnload(){
+    },
+    onLoad () {
+    },
     props: {
       menuType: {
         type: Array,
