@@ -4,8 +4,8 @@
     <item-info :type="2" :info="goodData">
       <p class="add-btn" @click="popupShopcart(true)">加入购物车</p>
     </item-info>
-    <item-spec :info="goodData" @popupShopcart="popupShopcart" @setParams="setParams"></item-spec>
-    <item-evaluate :info="goodData"/>
+    <paster-spec :info="goodData" @popupShopcart="popupShopcart" @setParams="setParams"></paster-spec>
+    <paster-evaluate :info="goodData"/>
     <card-shopcart v-if="shopcart" @close="popupShopcart"></card-shopcart>
   </div>
 </template>
@@ -13,8 +13,8 @@
 <script>
 import SlideGoods from '../../common/components/SlideGoods.vue';
 import ItemInfo from '../../common/components/itemInfo.vue';
-import ItemSpec from '../../common/components/itemSpec.vue';
-import ItemEvaluate from '../../common/components/itemEvaluate.vue';
+import pasterSpec from '../../common/components/pasterSpec.vue';
+import pasterEvaluate from '../../common/components/pasterEvaluate.vue';
 import CardShopcart from '../../common/components/cardShopcart.vue';
 export default {
   onUnload(){
@@ -24,7 +24,7 @@ export default {
   onLoad () {
   },
   components: {
-    SlideGoods,ItemInfo,ItemSpec,ItemEvaluate,CardShopcart
+    SlideGoods,ItemInfo,pasterSpec,pasterEvaluate,CardShopcart
   },
   data () {
     return {
@@ -70,9 +70,10 @@ export default {
         "comment_list":[//评价列表
           {
             "user_id":"用户id",
+            "user_img":"昵称",
             "user_name":"昵称",
             "comment_level":"1",    //评论等级
-            "comment_msg":"评论内容",
+            "comment_msg":"宝贝收到了,价格很便宜,和其他品牌比较,性价比高.下完单发货很快,会员试过这款蛋白粉之后都觉得不错.",
             "create_time":"评论时间戳",
             "item_specific":"产品名称规格",
             "url_arr":[

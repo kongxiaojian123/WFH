@@ -1,12 +1,16 @@
 <template>
   <div class="item item-evaluate">
-    <p class="item-title">产品评价({{info.comment_num}})</p>
-    <p class="item-data">{{info.goos_evaluation*100}}%好评 ></p>
-    <div class="item-tips">
-      <span>价格实惠(1800)</span>
-      <span>价格实惠(1800)</span>
-      <span>价格实asd惠(1800)</span>
-      <span>价asd格实asasd惠(1800)</span>
+    <div class="item-user-info">
+      <img class="item" v-if="evaluate.user_img" :src="evaluate.user_img" alt="" />
+      <span class="item user-name">{{evaluate.user_name}}</span>
+      <span class="item user-level">V{{evaluate.comment_level}}</span>
+    </div>
+    <div class="item-msg">{{evaluate.comment_msg}}</div>
+    <div class="item-img" v-if="evaluate.url_arr&&evaluate.url_arr.length">
+      <template v-for="(item,index) of evaluate.url_arr">
+        <img class="item" :key="index" v-if="item.type == 1" :src="item.img" alt="">
+        <video class="item" :key="index" v-if="item.type == 2" :src="item.img" :poster="item.cover"></video>
+      </template>
     </div>
   </div>
 </template>
@@ -20,7 +24,7 @@
     components: {
     },
     props: [
-      'info'
+      'evaluate'
     ],
     data () {
       return {
@@ -34,34 +38,54 @@
 <style scoped>
   .item-evaluate{
     position: relative;
-    margin-bottom: 10rpx;
-    padding: 30rpx 25rpx 40rpx;
-    background: var(--color-foreground);
-    .item-title{
+    padding: 25rpx;
+    &:before{
+      content: '';
+      display: block;
+      height: 1rpx;
+      background: var(--color-card-border);
+    }
+    .item-user-info{
+      display: flex;
+      align-items: center;
+      line-height: 50rpx;
+      margin-bottom: 15rpx;
+      > .item{
+        margin-right: 10rpx;
+      }
+      img{
+        width: 50rpx;
+        height: 50rpx;
+        border-radius: 25rpx;
+        background: #000;
+      }
+      .user-name{
+        font-weight: bold;
+        font-size: 26rpx;
+      }
+      .user-level{
+        height: 22rpx;
+        line-height: 22rpx;
+        font-size: 18rpx;
+        border-radius: 10rpx;
+        padding: 0 10rpx;
+        color: var(--color-foreground);
+        background: var(--color-tips-background-dark);
+      }
+    }
+    .item-msg{
       font-size: 28rpx;
-      font-weight: bold;
+      line-height: 40rpx;
     }
-    .item-data{
-      position: absolute;
-      right: 25rpx;
-      top: 30rpx;
-      font-size: 24rpx;
-      color: var(--color-text-selected);
-    }
-    .item-tips{
-      padding-top: 30rpx;
-      padding-bottom: 10rpx;
+    .item-img{
       display: flex;
       flex-wrap: wrap;
-      font-size: 22rpx;
-      line-height: 35rpx;
-      span{
-        white-space: nowrap;
-        padding: 0 10rpx;
-        margin-bottom: 10rpx;
-        margin-right: 15rpx;
-        background: var(--color-tips-background-light);
-        border-radius: 6rpx;
+      .item{
+        width: 150rpx;
+        height: 150rpx;
+        margin-right: 10rpx;
+        margin-top: 10rpx;
+        background: #000;
       }
     }
   }
