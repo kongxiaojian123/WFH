@@ -2,10 +2,11 @@
   <div v-if="goodData" class="container" @click="">
     <slide-goods/>
     <item-info :type="2" :info="goodData">
-      <p class="add-btn" @click="setShopcart(true)">加入购物车</p>
+      <p class="add-btn" @click="popupShopcart(true)">加入购物车</p>
     </item-info>
-    <item-spec :info="goodData" @setShopcart="setShopcart" @setParams="setParams"></item-spec>
-    <card-shopcart v-if="shopcart" @close="setShopcart"></card-shopcart>
+    <item-spec :info="goodData" @popupShopcart="popupShopcart" @setParams="setParams"></item-spec>
+    <item-evaluate :info="goodData"/>
+    <card-shopcart v-if="shopcart" @close="popupShopcart"></card-shopcart>
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 import SlideGoods from '../../common/components/SlideGoods.vue';
 import ItemInfo from '../../common/components/itemInfo.vue';
 import ItemSpec from '../../common/components/itemSpec.vue';
+import ItemEvaluate from '../../common/components/itemEvaluate.vue';
 import CardShopcart from '../../common/components/cardShopcart.vue';
 export default {
   onUnload(){
@@ -22,7 +24,7 @@ export default {
   onLoad () {
   },
   components: {
-    SlideGoods,ItemInfo,ItemSpec,CardShopcart
+    SlideGoods,ItemInfo,ItemSpec,ItemEvaluate,CardShopcart
   },
   data () {
     return {
@@ -86,7 +88,7 @@ export default {
     }
   },
   methods: {
-    setShopcart(val){
+    popupShopcart(val){
       // 打开购物车面板
       this.shopcart = val||false;
     },
