@@ -56,9 +56,9 @@
     bottom: -20rpx;
     left: 0;
     width: 100%;
-    padding: 60rpx 20rpx 80rpx;
+    padding: 60rpx 20rpx 120rpx;
     max-height: 85%;
-    min-height: 310rpx;
+    min-height: 300rpx;
     box-sizing: border-box;
     background: var(--color-foreground);
     border-radius: 8rpx 8rpx 0 0;

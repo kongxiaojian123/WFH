@@ -1,7 +1,7 @@
 <template>
   <div class="card-shopcart">
     <card>
-      sasdas
+      <span class="item-image" :style="{'background-image':'url('+info.product_img+')'}"></span>
     </card>
   </div>
 </template>

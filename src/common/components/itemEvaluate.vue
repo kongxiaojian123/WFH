@@ -7,10 +7,10 @@
     </div>
     <div class="item-msg">{{evaluate.comment_msg}}</div>
     <div class="item-img" v-if="evaluate.url_arr&&evaluate.url_arr.length">
-      <template v-for="(item,index) of evaluate.url_arr">
-        <img class="item" :key="index" v-if="item.type == 1" :src="item.img" alt="">
-        <video class="item" :key="index" v-if="item.type == 2" :src="item.img" :poster="item.cover"></video>
-      </template>
+      <div v-for="(item,index) of evaluate.url_arr" :key="index">
+        <img class="item" v-if="item.type == 1" :src="item.img" alt="">
+        <video class="item" v-if="item.type == 2" :src="item.img" :poster="item.cover"></video>
+      </div>
     </div>
   </div>
 </template>
