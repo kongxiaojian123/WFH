@@ -6,7 +6,7 @@
     </item-info>
     <paster-spec :info="goodData" @popupShopcart="popupShopcart" @setParams="setParams"></paster-spec>
     <paster-evaluate :info="goodData"/>
-    <card-shopcart v-if="shopcart" @close="popupShopcart"></card-shopcart>
+    <card-shopcart v-if="shopcart" :info="goodData" @close="popupShopcart"></card-shopcart>
   </div>
 </template>
 
@@ -18,8 +18,8 @@ import pasterEvaluate from '../../common/components/pasterEvaluate.vue';
 import CardShopcart from '../../common/components/cardShopcart.vue';
 export default {
   onUnload(){
-    this.setShopcart();
-    this.setParams();
+    this.popupShopcart(false);
+    this.setParams(false);
   },
   onLoad () {
   },
@@ -89,11 +89,11 @@ export default {
     }
   },
   methods: {
-    popupShopcart(val){
+    popupShopcart(val=false){
       // 打开购物车面板
-      this.shopcart = val||false;
+      this.shopcart = val;
     },
-    setParams(){
+    setParams(val=false){
       // 打开参数面板
       console.log(22);
     }
