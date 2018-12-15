@@ -6,6 +6,7 @@
     </item-info>
     <paster-spec :info="goodData" @popupShopcart="popupShopcart" @setParams="setParams"></paster-spec>
     <paster-evaluate :info="goodData"/>
+    <span class="icon icon-shopcart" @click="popupShopcart(true)"></span>
     <card-shopcart v-if="shopcart" :info="goodData" @close="popupShopcart"></card-shopcart>
   </div>
 </template>
@@ -112,6 +113,17 @@ export default {
     color: var(--color-foreground);
     background: var(--color-text-selected);
     border-radius: 13rpx;
+  }
+  .icon-shopcart{
+    position: fixed;
+    top: 75%;
+    right: 25rpx;
+    width: 60rpx;
+    height: 60rpx;
+    margin-top: -30rpx;
+    border-radius: 50%;
+    background: var(--color-tab-text-selected) var(--icon-shopcart) no-repeat 45% 45%;
+    background-size: 33rpx 35rpx;
   }
 }
 </style>
