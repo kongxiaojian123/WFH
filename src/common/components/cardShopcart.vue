@@ -3,32 +3,39 @@
     <div class="card-main">
       <span class="close-btn" @click="clickClose"></span>
       <!--<slot>-->
-        <div class="item-preview">
-          <span v-if="product_img" class="item-image" :style="{'background-image':'url('+product_img+')'}"></span>
-          <div class="item-desc">
-            <p class="item-price"><span>￥</span>{{info.price}}</p>
-            <p class="item-inventory">库存数量 {{info.inventory}}件</p>
-          </div>
+      <div class="item-preview">
+        <span v-if="product_img" class="item-image" :style="{'background-image':'url('+product_img+')'}"></span>
+        <div class="item-desc">
+          <p class="item-price"><span>￥</span>{{info.price}}</p>
+          <p class="item-inventory">库存数量 {{info.inventory}}件</p>
         </div>
-        <div class="item-taste">
-          <p class="title">口味</p>
-          <div class="list-taste">
-            <span class="selected">啦啦啦</span>
-            <span>啦啦啦</span>
-            <span>啦啦啦啦啦啦</span>
-            <span>啦啦啦</span>
-            <span>啦啦啦啦啦啦</span>
-            <span>啦啦啦</span>
-            <span>啦啦啦</span>
-            <span>啦啦啦啦啦啦</span>
-          </div>
+      </div>
+      <div class="item-taste">
+        <p class="title">口味</p>
+        <div class="list-taste">
+          <span class="selected">啦啦啦</span>
+          <span>啦啦啦</span>
+          <span>啦啦啦啦啦啦</span>
+          <span>啦啦啦</span>
+          <span>啦啦啦啦啦啦</span>
+          <span>啦啦啦</span>
+          <span>啦啦啦</span>
+          <span>啦啦啦啦啦啦</span>
         </div>
+      </div>
+      <div class="item-number">
+        <p class="title">下单数量</p>
+        <input-number :max="0" @getNum="getNum"/>
+      </div>
+      <hr/>
+      <div class="btn btn-submit">加入购物车</div>
       <!--</slot>-->
     </div>
   </div>
 </template>
 
 <script>
+  import InputNumber from './inputNumber';
   export default {
     onUnload(){
       this.hide = false;
@@ -36,6 +43,7 @@
     onLoad () {
     },
     components: {
+      InputNumber
     },
     props: [
       'info'
@@ -58,17 +66,24 @@
     },
     methods: {
       clickClose(){
-      this.hide = true;
-      setTimeout(()=>{
-         this.$emit('close');
-      },500);
+        this.hide = true;
+        setTimeout(()=>{
+           this.$emit('close');
+        },500);
+      },
+      getNum(num){
+        console.log(num);
+      }
     }
   }
-}
 </script>
 <style scoped>
 @import "../wxss/card.css";
 .card-shopcart{
+  .title{
+    font-size: 24rpx;
+    color: var(--color-text-sub);
+  }
   .item-preview{
       display: flex;
       padding-left: 20rpx;
@@ -104,18 +119,14 @@
   .item-taste{
     display: flex;
     flex-direction:column;
-    .title{
-      font-size: 24rpx;
-      color: var(--color-text-sub);
-    }
+    margin-bottom:35rpx;
     .list-taste{
       display: flex;
       flex-wrap: wrap;
-      padding-top: 5rpx;
       > span{
         font-size: 26rpx;
         flex: none;
-        margin: 10rpx 25rpx 10rpx 0;
+        margin: 15rpx 25rpx 5rpx 0;
         border: 1rpx solid var(--color-background);
         background: var(--color-background);
         padding: 5rpx 20rpx;
@@ -127,6 +138,17 @@
         }
       }
     }
+  }
+  .item-number{
+    display: flex;
+    justify-content:space-between;
+    >>> .input-number{
+      width: 140rpx;
+    }
+  }
+  .btn-submit{
+    line-height: 70rpx;
+    font-size: 34rpx;
   }
 }
 </style>

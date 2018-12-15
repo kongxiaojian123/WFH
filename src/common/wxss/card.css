@@ -54,24 +54,24 @@
 @keyframes popIn {
   0%{
     opacity: 0;
-    transform: translateY(300rpx);
+    transform: translateY(500rpx);
   }
   50%{
     opacity: 1;
   }
-  80%{
-    transform:translateY(-20rpx);
+  70%{
+    transform:translateY(-30rpx);
   }
 }
 @keyframes popOut {
-  20%{
-    transform:translateY(-20rpx);
+  30%{
+    transform:translateY(-30rpx);
   }
   50%{
     opacity: 1;
   }
   100%{
     opacity: 0;
-    transform: translateY(300rpx);
+    transform: translateY(500rpx);
   }
 }

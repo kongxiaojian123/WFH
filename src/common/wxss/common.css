@@ -1,0 +1,11 @@
+._hr{
+  height: 1rpx;
+  background: var(--color-card-border);
+  margin: 20rpx 0;
+}
+.btn{
+  background: var(--color-tab-text-selected);
+  color: var(--color-foreground);
+  text-align: center;
+  border-radius: 10rpx;
+}
