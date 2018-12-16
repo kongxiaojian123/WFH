@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/main",
+    "pages/shopcart/main",
     "pages/goods/main"
   ],
   "window":{
@@ -33,7 +34,7 @@
         "selectedIconPath": "static/icon_rebate_selected.png"
       },
       {
-        "pagePath": "pages/index/main",
+        "pagePath": "pages/shopcart/main",
         "text": "购物车",
         "iconPath": "static/icon_cart.png",
         "selectedIconPath": "static/icon_cart_selected.png"
