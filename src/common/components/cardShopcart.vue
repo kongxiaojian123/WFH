@@ -28,7 +28,7 @@
         <input-number :max="0" @getNum="getNum"/>
       </div>
       <hr/>
-      <div class="btn btn-submit">加入购物车</div>
+      <div class="btn-red btn-submit">加入购物车</div>
       <!--</slot>-->
     </div>
   </div>

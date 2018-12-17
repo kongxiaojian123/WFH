@@ -3,9 +3,17 @@
   background: var(--color-card-border);
   margin: 20rpx 0;
 }
-.btn{
+.btn-red{
+  box-sizing: border-box;
   background: var(--color-tab-text-selected);
   color: var(--color-foreground);
+  text-align: center;
+  border-radius: 10rpx;
+}
+.btn-white{
+  box-sizing: border-box;
+  border: 1rpx solid var(--color-text-sub);
+  color: var(--color-text-sub);
   text-align: center;
   border-radius: 10rpx;
 }

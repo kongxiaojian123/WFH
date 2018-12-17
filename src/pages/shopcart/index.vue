@@ -1,8 +1,18 @@
 <template>
-  <div v-if="!shopcartData" class="container">
-
+  <div class="container">
+    <div v-if="shopcartData" class="shopcart-list">
+      <div class="shopcart-ctr">
+        <div class="btn btn-all"><span class="icon"></span><span class="text">全选</span></div>
+        <div v-if="!manageFlag" class="shopcart-info">
+          <span class="total">总计: {{c_total.price}} {{c_total.num?"("+c_total.num+"件)":""}}</span>
+          <span class="freight">运费: {{c_freight}}</span>
+        </div>
+        <span v-if="manageFlag" class="btn-white btn-delete">删除</span>
+        <span v-else class="btn-red btn-complete">结算</span>
+      </div>
+    </div>
+    <div v-else class="shopcart-nothing">您的购物车暂无商品</div>
   </div>
-  <div v-else class="container nothing">您的购物车暂无商品</div>
 </template>
 
 <script>
@@ -13,8 +23,20 @@ export default {
   },
   components: {
   },
+  computed:{
+    c_total(){
+      return {
+        price:(0).toFixed(2),
+        num:0
+      };
+    },
+    c_freight(){
+      return (0).toFixed(2);
+    }
+  },
   data () {
     return {
+      manageFlag:false,
       shopcartData:[
         {
           "shopping_id": "购物车产品id",
@@ -44,7 +66,59 @@ export default {
 
 <style scoped>
 .container{
-  &.nothing{
+  .shopcart-list{
+    .shopcart-ctr{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 25rpx;
+      box-sizing: border-box;
+      background: var(--color-foreground);
+      box-shadow: 0 0 50rpx var(--color-view-shadow);
+      display: flex;
+      justify-content: space-between;
+      .btn-all{
+        position: relative;
+        flex: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: flex-end;
+        color: var(--color-text-sub);
+        .icon{
+          flex: none;
+          width: 35rpx;
+          height: 35rpx;
+          border-radius: 50%;
+          border: 1rpx solid var(--color-text-sub);
+          box-sizing: border-box;
+        }
+      }
+      .shopcart-info{
+        padding: 0 25rpx;
+        flex: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        .total{
+          font-size: 24rpx;
+        }
+        .freight{
+          font-size: 20rpx;
+          color: var(--color-text-sub);
+        }
+      }
+      .btn-delete,.btn-red{
+        align-self: flex-end;
+        flex: none;
+        width: 200rpx;
+        line-height: 70rpx;
+      }
+    }
+  }
+  .shopcart-nothing{
     position: relative;
     width: 100%;
     background: var(--icon-shopcart-nothing) no-repeat center 145rpx;
