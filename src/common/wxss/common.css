@@ -17,3 +17,17 @@
   text-align: center;
   border-radius: 10rpx;
 }
+
+.icon-unchecked{
+  flex: none;
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 50%;
+  border: 1rpx solid var(--color-text-sub);
+  box-sizing: border-box;
+  &.checked{
+     border: none;
+     background: var(--color-tab-text-selected) var(--icon-tick) no-repeat center;
+     background-size: 21rpx 13rpx;
+  }
+}

@@ -2,7 +2,7 @@
   <div class="container">
     <div v-if="shopcartData" class="shopcart-list">
       <div class="shopcart-ctr">
-        <div class="btn btn-all"><span class="icon"></span><span class="text">全选</span></div>
+        <div class="btn btn-all" :class="{'btn-all-show':isAll}" @click="clickAll"><span class="icon-unchecked" :class="{'checked':isAll}" ></span><span class="text">全选</span></div>
         <div v-if="!manageFlag" class="shopcart-info">
           <span class="total">总计: {{c_total.price}} {{c_total.num?"("+c_total.num+"件)":""}}</span>
           <span class="freight">运费: {{c_freight}}</span>
@@ -24,19 +24,31 @@ export default {
   components: {
   },
   computed:{
+    isAll(){
+      return  (this.c_total.num&&this.c_total.num === this.shopcartData.length);
+    },
     c_total(){
+      let price = 0;
+      let num = 0;
+      this.shopcartData.forEach(item=>{
+        if(item.checked){
+          price+=parseFloat(item.price);
+          num++;
+        }
+      });
       return {
-        price:(0).toFixed(2),
-        num:0
+        price:price.toFixed(2),
+        num:num
       };
     },
     c_freight(){
+      //运费
       return (0).toFixed(2);
     }
   },
   data () {
     return {
-      manageFlag:false,
+      manageFlag:true,
       shopcartData:[
         {
           "shopping_id": "购物车产品id",
@@ -46,6 +58,7 @@ export default {
           "option": "口味:巧克力 规格:7磅",
           "price": "商品价格",
           "num": "购买数量",
+          "checked":false
         },
         {
           "shopping_id": "购物车产品id",
@@ -55,11 +68,25 @@ export default {
           "option": "口味:巧克力 规格:7磅",
           "price": "商品价格",
           "num": "购买数量",
+          "checked":false
         },
       ]
     }
   },
   methods: {
+    clickAll(){
+      if(this.isAll){
+        //取消全选
+        this.shopcartData.forEach(item=>{
+          item.checked = false;
+        });
+      }else{
+        //全选
+        this.shopcartData.forEach(item=>{
+          item.checked = true;
+        });
+      }
+    }
   }
 }
 </script>
@@ -86,13 +113,8 @@ export default {
         align-items: center;
         align-self: flex-end;
         color: var(--color-text-sub);
-        .icon{
-          flex: none;
-          width: 35rpx;
-          height: 35rpx;
-          border-radius: 50%;
-          border: 1rpx solid var(--color-text-sub);
-          box-sizing: border-box;
+        &.btn-all-show{
+          color: var(--color-text-selected);
         }
       }
       .shopcart-info{
