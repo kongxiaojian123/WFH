@@ -20,7 +20,7 @@
     position: absolute;
     display: flex;
     flex-direction:column;
-    bottom: -20rpx;
+    bottom: -30rpx;
     left: 0;
     width: 100%;
     padding: 60rpx 20rpx 120rpx;
