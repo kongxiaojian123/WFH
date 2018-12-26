@@ -24,11 +24,15 @@
       max:{
         type: Number,
         default: 0
+      },
+      initNum:{
+        type: Number,
+        default: 0
       }
     },
     data () {
       return {
-        num:0,
+        num:this.initNum,
       }
     },
     watch:{

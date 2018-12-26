@@ -19,12 +19,21 @@
 }
 
 .icon-unchecked{
+  position: relative;
   flex: none;
   width: 35rpx;
   height: 35rpx;
   border-radius: 50%;
   border: 1rpx solid var(--color-text-sub);
   box-sizing: border-box;
+  &:before{
+     content: "";
+     position: absolute;
+     top: -12.5rpx;
+     left: -12.5rpx;
+     width: 60rpx;
+     height: 60rpx;
+  }
   &.checked{
      border: none;
      background: var(--color-tab-text-selected) var(--icon-tick) no-repeat center;
