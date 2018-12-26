@@ -43,7 +43,6 @@
     align-items: center;
     padding: 30rpx;
     box-sizing: border-box;
-    background: var(--color-foreground);
     &:before{
       content: '';
       position: absolute;

@@ -69,6 +69,7 @@
       height: 100%;
       line-height: 40rpx;
       min-height: auto;
+      z-index: 0;
     }
     .btn-sub{
       flex: none;

@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <div v-if="shopcartData" class="shopcart-main">
-      <div class="shopcart-type">
+      <div class="shopcart-paster">
+        <item-shopcart v-for="(item,index) of shopcartData" :key="index" :index="index" :info="item" @checkGood="checkGood" @setNum="setNum"/>
+      </div>
+      <div class="shopcart-head">
         <span v-if="c_total.price>=freePost" class="tip">{{manageFlag?'':'已满'+freePost+'元,免邮费'}}</span>
         <span class="btn btn-manage" @click="manageFlag = !manageFlag">{{manageFlag?'完成':'管理'}}</span>
-      </div>
-      <div class="shopcart-list">
-        <paster-shopcart v-for="(item,index) of shopcartData" :key="index" :index="index" :info="item" @checkGood="checkGood" @setNum="setNum"/>
       </div>
       <div class="shopcart-ctr">
         <div class="btn btn-all" :class="{'btn-all-show':isAll}" @click="clickAll"><span class="icon-unchecked" :class="{'checked':isAll}" ></span><span class="text">全选</span></div>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import PasterShopcart from '../../common/components/pasterShopcart';
+  import ItemShopcart from '../../common/components/itemShopcart';
 export default {
   onUnload(){
   },
@@ -33,7 +33,7 @@ export default {
   onLoad () {
   },
   components: {
-    PasterShopcart,
+    ItemShopcart,
   },
   computed:{
     isAll(){
@@ -74,6 +74,132 @@ export default {
           "price": "商品价格",
           "num": 12,
           "checked":false,
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
+        }, {
+          "shopping_id": "购物车产品id",
+          "product_id": "产品id",
+          "product_img": "产品图片",
+          "title": "商品名称",
+          "option": "口味:巧克力 规格:7磅",
+          "price": "商品价格",
+          "num": 12,
+          "checked":false
         }, {
           "shopping_id": "购物车产品id",
           "product_id": "产品id",
@@ -130,7 +256,12 @@ export default {
 <style scoped>
 .container{
   .shopcart-main{
-    .shopcart-type{
+    padding-top: 65rpx;
+    padding-bottom: 130rpx;
+    .shopcart-head{
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 65rpx;
       line-height: 65rpx;
@@ -139,13 +270,32 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--color-foreground);
       font-size: 24rpx;
+      background: var(--color-foreground);
+      z-index: 100;
       .btn{
         justify-self: flex-end;
         height: 100%;
         padding: 0 5rpx;
         font-size: 30rpx;
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 10rpx;
+        right: 10rpx;
+        height: 1rpx;
+        background: var(--color-card-border);
+      }
+    }
+    .shopcart-paster{
+      margin-bottom: 10rpx;
+      background: var(--color-foreground);
+      :first-child{
+        &:before{
+          display: none;
+        }
       }
     }
     .shopcart-ctr{
