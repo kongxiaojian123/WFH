@@ -15,7 +15,7 @@
           <span class="total">总计: {{c_total.price}} {{c_total.num?"("+c_total.num+"件)":""}}</span>
           <span class="freight">运费: {{c_freight}}</span>
         </div>
-        <span v-if="manageFlag" class="btn-delete" :class="[c_total.num>0?'btn-red':'btn-white']" @click="clickDelete">删除</span>
+        <span v-if="manageFlag" class="btn-delete" :class="[c_total.num>0?'btn-black':'btn-white']" @click="clickDelete">删除</span>
         <span v-else class="btn-complete" :class="[c_total.num>0?'btn-red':'btn-white']" @click="clickBill">结算</span>
       </div>
     </div>

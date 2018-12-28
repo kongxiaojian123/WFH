@@ -4,15 +4,22 @@
   margin: 20rpx 0;
 }
 .btn-red{
-  box-sizing: border-box;
+  border: 1rpx solid var(--color-tab-text-selected);
   background: var(--color-tab-text-selected);
   color: var(--color-foreground);
   text-align: center;
   border-radius: 10rpx;
 }
+.btn-black{
+  border: 1rpx solid var(--color-tab-background);
+  background: var(--color-tab-background);
+  color: var(--color-foreground);
+  text-align: center;
+  border-radius: 10rpx;
+}
 .btn-white{
-  box-sizing: border-box;
   border: 1rpx solid var(--color-text-sub);
+  background: var(--color-foreground);
   color: var(--color-text-sub);
   text-align: center;
   border-radius: 10rpx;
