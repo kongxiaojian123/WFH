@@ -1,5 +1,5 @@
 <template>
-  <div class="paster paster-shopcart">
+  <div class="paster paster-shopcart" v-if="info">
     <span class="icon-unchecked" :class="{'checked':info.checked}" @click="$emit('checkGood',index)"></span>
     <span class="item-image" :style="{'background-image':'url('+info.product_img+')'}"></span>
     <item-info :type="3" :info="info"/>

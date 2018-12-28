@@ -68,7 +68,7 @@ export default {
         {
           "shopping_id": "购物车产品id",
           "product_id": "产品id",
-          "product_img": "产品图片",
+          "product_img": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
           "title": "商品名称",
           "option": "口味:巧克力 规格:7磅",
           "price": "商品价格",
@@ -77,7 +77,7 @@ export default {
         }, {
           "shopping_id": "购物车产品id",
           "product_id": "产品id",
-          "product_img": "产品图片",
+          "product_img": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
           "title": "商品名称",
           "option": "口味:巧克力 规格:7磅",
           "price": "商品价格",
@@ -86,7 +86,7 @@ export default {
         }, {
           "shopping_id": "购物车产品id",
           "product_id": "产品id",
-          "product_img": "产品图片",
+          "product_img": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
           "title": "商品名称",
           "option": "口味:巧克力 规格:7磅",
           "price": "商品价格",
