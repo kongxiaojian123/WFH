@@ -1,8 +1,11 @@
 <template>
-  <div class="paster paster-spec">
-    <p class="s-item s-item-select" @click="$emit('popupShopcart',true)"><span class="type">选择</span><span>请选择口味  规格</span><span class="more">></span></p>
-    <p class="s-item s-item-params" @click="$emit('setParams',true)"><span class="type">参数</span><span>生产日期  产地…</span><span class="more">></span></p>
-    <p class="s-item s-item-sexplain"><span class="type">说明</span><span>药监认证 · 假一赔十 · 极速退款</span></p>
+  <div class="paster paster-preferential">
+    <div class="list-preferential">
+      <p>[ 红包活动 ] 下单满1000元,完成订单获50元现金红包</p>
+    </div>
+    <div class="list-summarize">
+      <p>返利总计（元）250 = 代销返利20x10 + 红包50</p>
+    </div>
   </div>
 </template>
 
@@ -27,24 +30,38 @@
 </script>
 
 <style scoped>
-  .paster-spec{
-    position: relative;
-    margin-bottom: 10rpx;
-    padding: 10rpx 25rpx;
-    background: var(--color-foreground);
-    font-size:24rpx;
-    line-height: 55rpx;
-    .s-item{
-      > span{
-        display: inline-block;
-      }
-      .type{
-        width: 80rpx;
+  .paster-preferential{
+    display: flex;
+    flex-direction: column;
+    font-size: 24rpx;
+    line-height: 24rpx;
+    > div{
+      display: flex;
+      flex-direction: column;
+      padding: 30rpx;
+    }
+    .list-preferential{
+      > p{
+        padding-top: 30rpx;
         color: var(--color-text-sub);
       }
-      .more{
-        float: right;
-        color: var(--color-text-sub);
+      &:before{
+        content: '已参与活动';
+        font-weight: bold;
+        font-size: 28rpx;
+        line-height: 28rpx;
+      }
+    }
+    .list-summarize{
+      position: relative;
+      &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 10rpx;
+        right: 10rpx;
+        height: 1rpx;
+        background: var(--color-card-border);
       }
     }
   }

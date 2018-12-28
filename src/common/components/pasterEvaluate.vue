@@ -42,9 +42,6 @@
 
 <style scoped>
   .paster-evaluate{
-    position: relative;
-    margin-bottom: 10rpx;
-    background: var(--color-foreground);
     .item-title{
       padding: 30rpx 25rpx 0;
       font-size: 28rpx;

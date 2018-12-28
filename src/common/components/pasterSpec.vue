@@ -28,10 +28,7 @@
 
 <style scoped>
   .paster-spec{
-    position: relative;
-    margin-bottom: 10rpx;
     padding: 10rpx 25rpx;
-    background: var(--color-foreground);
     font-size:24rpx;
     line-height: 55rpx;
     .s-item{

@@ -17,7 +17,11 @@
   text-align: center;
   border-radius: 10rpx;
 }
-
+.paster{
+  position: relative;
+  margin-bottom: 10rpx;
+  background: var(--color-foreground);
+}
 .icon-unchecked{
   position: relative;
   flex: none;

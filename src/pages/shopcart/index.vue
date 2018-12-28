@@ -1,14 +1,15 @@
 <template>
   <div class="container">
-    <div v-if="shopcartData" class="shopcart-main">
-      <div class="shopcart-paster">
-        <item-shopcart v-for="(item,index) of shopcartData" :key="index" :index="index" :info="item" @checkGood="checkGood" @setNum="setNum"/>
-      </div>
-      <div class="shopcart-head">
+    <div v-if="shopcartData" class="view-shopcart">
+      <div class="head-shopcart">
         <span v-if="c_total.price>=freePost" class="tip">{{manageFlag?'':'已满'+freePost+'元,免邮费'}}</span>
         <span class="btn btn-manage" @click="manageFlag = !manageFlag">{{manageFlag?'完成':'管理'}}</span>
       </div>
-      <div class="shopcart-ctr">
+      <div class="paster paster-shopcart">
+        <item-shopcart v-for="(item,index) of shopcartData" :key="index" :index="index" :info="item" @checkGood="checkGood" @setNum="setNum"/>
+      </div>
+      <paster-preferential :info="shopcartData"/>
+      <div class="bottom-shopcart">
         <div class="btn btn-all" :class="{'btn-all-show':isAll}" @click="clickAll"><span class="icon-unchecked" :class="{'checked':isAll}" ></span><span class="text">全选</span></div>
         <div v-if="!manageFlag" class="shopcart-info">
           <span class="total">总计: {{c_total.price}} {{c_total.num?"("+c_total.num+"件)":""}}</span>
@@ -23,7 +24,8 @@
 </template>
 
 <script>
-  import ItemShopcart from '../../common/components/itemShopcart';
+import ItemShopcart from '../../common/components/itemShopcart';
+import PasterPreferential from '../../common/components/pasterPreferential';
 export default {
   onUnload(){
   },
@@ -33,7 +35,7 @@ export default {
   onLoad () {
   },
   components: {
-    ItemShopcart,
+    ItemShopcart,PasterPreferential
   },
   computed:{
     isAll(){
@@ -92,124 +94,7 @@ export default {
           "price": "商品价格",
           "num": 12,
           "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        }, {
-          "shopping_id": "购物车产品id",
-          "product_id": "产品id",
-          "product_img": "产品图片",
-          "title": "商品名称",
-          "option": "口味:巧克力 规格:7磅",
-          "price": "商品价格",
-          "num": 12,
-          "checked":false
-        },
+        }
       ]
     }
   },
@@ -255,10 +140,10 @@ export default {
 
 <style scoped>
 .container{
-  .shopcart-main{
+  .view-shopcart{
     padding-top: 65rpx;
     padding-bottom: 130rpx;
-    .shopcart-head{
+    .head-shopcart{
       position: fixed;
       top: 0;
       left: 0;
@@ -289,16 +174,14 @@ export default {
         background: var(--color-card-border);
       }
     }
-    .shopcart-paster{
-      margin-bottom: 10rpx;
-      background: var(--color-foreground);
+    .paster-shopcart{
       :first-child{
         &:before{
           display: none;
         }
       }
     }
-    .shopcart-ctr{
+    .bottom-shopcart{
       position: fixed;
       bottom: 0;
       left: 0;
@@ -309,6 +192,7 @@ export default {
       box-shadow: 0 0 50rpx var(--color-view-shadow);
       display: flex;
       justify-content: space-between;
+      z-index: 100;
       .btn-all{
         position: relative;
         flex: none;
