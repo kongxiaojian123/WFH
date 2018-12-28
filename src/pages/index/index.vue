@@ -11,9 +11,9 @@ import BarMenu from '../../common/components/barMenu.vue'
 import ViewGoods from '../../common/components/viewGoods.vue'
 import ViewRecommend from '../../common/components/viewRecommend'
 export default {
-  onUnload(){
+  onHide(){
   },
-  onLoad () {
+  onShow() {
   },
   components: {
     BarMenu, ViewGoods,ViewRecommend

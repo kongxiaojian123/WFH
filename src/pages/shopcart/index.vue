@@ -27,12 +27,10 @@
 import ItemShopcart from '../../common/components/itemShopcart';
 import PasterPreferential from '../../common/components/pasterPreferential';
 export default {
-  onUnload(){
-  },
   onHide(){
     this.manageFlag = false;
   },
-  onLoad () {
+  onShow() {
   },
   components: {
     ItemShopcart,PasterPreferential
