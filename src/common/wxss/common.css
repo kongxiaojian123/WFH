@@ -37,7 +37,7 @@
   border-radius: 50%;
   border: 1rpx solid var(--color-text-sub);
   box-sizing: border-box;
-  &:before{
+  &:after{
      content: "";
      position: absolute;
      top: -12.5rpx;

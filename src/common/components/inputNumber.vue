@@ -1,5 +1,5 @@
 <template>
-  <div class="input input-number">
+  <div class="input input-number" @click.stop>
     <span class="btn-sub btn-decrease" @click="num--">-</span>
     <input type="number" class="number" v-model="num">
     <span class="btn-sub btn-increase" @click="num++">+</span>
@@ -72,9 +72,27 @@
       z-index: 0;
     }
     .btn-sub{
+      position: relative;
       flex: none;
       width: 30rpx;
       background: var(--color-foreground);
+      &.btn-decrease{
+        &:after{
+          right: 0;
+        }
+      }
+      &.btn-increase{
+        &:after{
+          left: 0;
+        }
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        top: -10rpx;
+        height: 60rpx;
+        width: 60rpx;
+      }
     }
   }
 </style>
