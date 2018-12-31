@@ -129,7 +129,9 @@ export default {
     },
     clickBill(){
       if(this.c_total.num>0){
-        console.log(123123);
+        wx.navigateTo({
+          url:`/pages/order/main?shopping_check`
+        });
       }
     }
   }
