@@ -1,32 +1,25 @@
 <template>
-  <div class="container" @click="">
-    <bar-menu :menuIndex="menuIndex" @selectMenu="selectMenu"/>
-    <view-recommend v-if="menuIndex===0"/>
-    <view-goods v-else-if="menuIndex===1"/>
+  <div class="container">
+    <my-address :addsData="addsData"/>
   </div>
 </template>
 
 <script>
-import BarMenu from '../../common/components/barMenu.vue'
-import ViewGoods from '../../common/components/viewGoods.vue'
-import ViewRecommend from '../../common/components/viewRecommend'
+  import MyAddress from '../../common/components/address.vue';
 export default {
   onHide(){
   },
   onShow() {
   },
   components: {
-    BarMenu, ViewGoods,ViewRecommend
+    MyAddress
   },
   data () {
     return {
-      menuIndex: 0
+      addsData:[]
     }
   },
   methods: {
-    selectMenu (index) {
-      this.menuIndex = index
-    }
   },
 }
 </script>
