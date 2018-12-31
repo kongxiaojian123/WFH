@@ -9,7 +9,8 @@
 	},
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
-	"appid": "wx14dade0f2edcef61",
+  "appid": "wx14dade0f2edcef61",
+	"_appid": "wx005a12cecd59a8be",
 	"projectname": "wfh",
 	"condition": {
 		"search": {
