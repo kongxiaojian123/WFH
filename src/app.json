@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/main",
     "pages/shopcart/main",
-    "pages/goods/main"
+    "pages/goods/main",
+    "pages/order/main"
   ],
   "window":{
     "backgroundColor":"#f1f1f1",
