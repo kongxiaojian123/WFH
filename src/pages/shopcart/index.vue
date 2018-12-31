@@ -140,6 +140,9 @@ export default {
 
 <style scoped>
 .container{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
   .view-shopcart{
     padding-top: 65rpx;
     padding-bottom: 130rpx;
