@@ -173,7 +173,7 @@
         line-height: inherit;
       }
     }
-    &.type3{
+    &.type3, &.type4{
       /*购物列表页*/
       flex: auto;
       width: auto;
@@ -188,5 +188,14 @@
         height: 65rpx;
       }
     }
+  &.type4{
+    /*订单页*/
+   .item-price{
+     color: var(--color-text);
+     margin-top:10rpx;
+     line-height:26rpx;
+     font-size:26rpx;
+   }
+   }
   }
 </style>
