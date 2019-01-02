@@ -66,10 +66,20 @@
     border: 1rpx solid var(--color-background);
     background: var(--color-background);
     .number{
+      position: relative;
       height: 100%;
       line-height: 40rpx;
       min-height: auto;
+      overflow: visible;
       z-index: 0;
+      &:before{
+        content: '';
+        position: absolute;
+        top: -10rpx;
+        left: 0;
+        width: 100%;
+        height: 60rpx;
+      }
     }
     .btn-sub{
       position: relative;
