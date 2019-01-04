@@ -18,7 +18,12 @@
     },
     data () {
       return {
-        goodsList:[
+        goodsList:null,
+      }
+    },
+    methods: {
+      initData(){
+        this.goodsList = [
           {
             "product_id": "产品id",
             "product_img": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
@@ -39,10 +44,8 @@
             "rebate_price": "3",
             "goos_evaluation": 0.98, //好评率  等于98%
           },
-        ]
-      }
-    },
-    methods: {
+        ];
+      },
     }
   }
 </script>

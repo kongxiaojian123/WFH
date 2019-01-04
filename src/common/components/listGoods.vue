@@ -14,11 +14,23 @@
     components: {
       ItemGoods,
     },
-    props: {
-    },
+    props: ['filterIndex'],
     data () {
       return {
-        goodsList:[
+        goodsList:null,
+        page:1,
+        count:0,
+      }
+    },
+    watch:{
+      filterIndex(){
+        this.initData();
+      }
+    },
+    methods: {
+      initData(){
+        console.log(this.filterIndex);
+        this.goodsList = [
           {
             "product_id": "产品id",
             "product_img": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
@@ -169,10 +181,11 @@
             "rebate_price": "3",
             "goos_evaluation": 0.98, //好评率  等于98%
           },
-        ]
+        ];
+      },
+      updateData(){
+
       }
-    },
-    methods: {
     }
   }
 </script>

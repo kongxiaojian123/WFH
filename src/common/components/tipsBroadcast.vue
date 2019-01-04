@@ -19,13 +19,17 @@
     },
     data () {
       return {
-        broadcastData: [
-          {message: 111},
-          {message: 222}
-        ],
+        broadcastData: null,
         broadcastIndex: 0,
         broadcastAnimation: false,
         switchBroadcast: false
+      }
+    },
+    watch:{
+      broadcastData(){
+        this.broadcastIndex= 0;
+        this.broadcastAnimation= false;
+        this.switchBroadcast= false;
       }
     },
     computed: {
@@ -48,9 +52,15 @@
         }
       }
     },
-    created () {
+    mounted () {
     },
     methods: {
+      initData(){
+        this.broadcastData = [
+          {message: 111},
+          {message: 222}
+        ];
+      },
       broadcastAnimationEnd (index) {
         if (!index) {
           this.switchBroadcast = true
@@ -71,6 +81,7 @@
 <style scoped>
   .tips-broadcast{
     position: relative;
+    flex: none;
     width: 660rpx;
     padding: 24rpx 10rpx 24rpx 64rpx;
     height: 40rpx;

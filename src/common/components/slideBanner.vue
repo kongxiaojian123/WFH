@@ -19,7 +19,12 @@
     },
     data () {
       return {
-        slide:[
+        slide:null,
+      }
+    },
+    methods: {
+      initData(){
+        this.slide = [
           {
             "pic_url": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
             "jump_url": "/pages/goods/main",
@@ -28,10 +33,8 @@
             "pic_url": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
             "jump_url": "/pages/goods/main",
           }
-        ]
-      }
-    },
-    methods: {
+        ];
+      },
       jumpPage(url){
         wx.navigateTo({
           url:url

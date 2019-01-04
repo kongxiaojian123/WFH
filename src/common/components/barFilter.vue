@@ -1,7 +1,5 @@
 <template>
-  <div class="bar">
-    <span class='filter-bar-span'></span>
-    <div class="filter-bar">
+  <div class="bar filter-bar">
       <p v-for="(item,index) of filterType" :key="index"
             :class="{
               'selected':index+1===filterIndex,
@@ -10,7 +8,6 @@
               'price-show':index+1===priceShow}"
             @click="selectFilter(index+1)"
       >{{item}}</p>
-    </div>
   </div>
 </template>
 
@@ -23,7 +20,9 @@
     props: {
       filterType: {
         type: Array,
-        default: ['销量', '价格', '价格', '新品', '筛选']
+        default: ['销量', '价格', '价格', '新品'
+          // , '筛选'
+        ]
       },
       filterIndex: {
         type: Number,
@@ -40,50 +39,43 @@
     methods: {
       // 这里是一个自定义方法
       selectFilter: function (index) {
-        const filterType = this.filterType
-        const filterIndex = this.filterIndex
+        const filterType = this.filterType;
+        const filterIndex = this.filterIndex;
         if (filterType[index - 1] === '价格') {
           if (filterType[filterIndex - 1] === '价格') {
             switch (index) {
               case 2:
-                index = 3
-                break
+                index = 3;
+                break;
               case 3:
-                index = 2
-                break
+                index = 2;
+                break;
             }
           }
-          this.priceShow = index
+          this.priceShow = index;
         } else {
-          this.priceShow = 2
+          this.priceShow = 2;
         }
-        this.$emit('selectFilter', index)
+        this.$emit('selectFilter', index);
       }
     }
   }
 </script>
 
 <style scoped>
-  .filter-bar-span,.filter-bar{
+  .filter-bar{
+    flex: none;
     width: 100%;
     height: 88rpx;
     line-height: 88rpx;
     text-align: center;
-  }
-  .filter-bar-span{
-    display: block;
-    padding-bottom: 8rpx;
-  }
-  .filter-bar{
     display: flex;
-    position: fixed;
-    top: 70rpx;
+    margin-bottom: 8rpx;
     background: var(--color-foreground);
     border-top: 5rpx solid var(--color-background);
     font-size: 28rpx;
     font-weight: bold;
     box-shadow: 0 3rpx 7rpx var(--color-view-shadow);
-    z-index: 5;
     view{
       flex: auto;
       position: relative;
