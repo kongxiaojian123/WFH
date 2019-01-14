@@ -8,19 +8,21 @@
       </div>
     </div>
     <PasterMyOlder />
+    <PasterMyService />
   </div>
 </template>
 
 <script>
 import ItemPortrait from '../../common/components/itemPersonPortrait';
 import PasterMyOlder from '../../common/components/pasterMyOlder';
+import PasterMyService from '../../common/components/pasterMyService';
 export default {
   onHide(){
   },
   onShow() {
   },
   components: {
-    ItemPortrait,PasterMyOlder
+    ItemPortrait,PasterMyOlder,PasterMyService
   },
   data () {
     return {
