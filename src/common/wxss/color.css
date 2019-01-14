@@ -9,7 +9,7 @@ view,page{
   --color-tab-text: #d3d5d9;
   --color-tips-background-red: #fff0f1;
   --color-tips-background-light: #fef2f3;
-  --color-tips-background-dark: var(--color-text);
+  --color-tips-background-dark: #3e495f;
   --color-card-border: var(--color-tab-text);
   --color-tips-text: var(--color-text-selected);
   --color-tab-text-selected: var(--color-text-selected);

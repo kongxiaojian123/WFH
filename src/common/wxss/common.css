@@ -28,6 +28,14 @@
   position: relative;
   margin-bottom: 10rpx;
   background: var(--color-foreground);
+  &.paster-personal{
+     display: flex;
+     padding: 25rpx 25rpx 0 25rpx;
+     flex-direction: column;
+      box-sizing: border-box;
+     background: var(--color-text);
+     color: var(--color-tab-text);
+   }
 }
 .icon-unchecked{
   position: relative;

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="">
+  <div class="container">
     <bar-menu :menuIndex="menuIndex" @selectMenu="selectMenu"/>
     <view-recommend v-if="menuIndex===0" :systemInfo="systemInfo"/>
     <view-goods v-else-if="menuIndex===1" :systemInfo="systemInfo"/>

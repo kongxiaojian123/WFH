@@ -3,7 +3,8 @@
     "pages/index/main",
     "pages/shopcart/main",
     "pages/goods/main",
-    "pages/order/main"
+    "pages/order/main",
+    "pages/personal/main"
   ],
   "window":{
     "backgroundColor":"#f1f1f1",
@@ -41,7 +42,7 @@
         "selectedIconPath": "static/icon_cart_selected.png"
       },
       {
-        "pagePath": "pages/index/main",
+        "pagePath": "pages/personal/main",
         "text": "我的",
         "iconPath": "static/icon_mine.png",
         "selectedIconPath": "static/icon_mine_selected.png"
