@@ -3,22 +3,24 @@
     <div class="paster paster-personal">
       <ItemPortrait :info="{}" />
       <div class="item-active">
-        <p class="active-info">本月活跃值: 89     (返利权重???)</p>
+        <p class="active-info"><span>本月活跃值: 89</span><span class="icon icon-up"></span><span>(返利权重???)</span></p>
         <p class="active-more">详细评分</p>
       </div>
     </div>
+    <PasterMyOlder />
   </div>
 </template>
 
 <script>
-  import ItemPortrait from '../../common/components/itemPersonPortrait';
+import ItemPortrait from '../../common/components/itemPersonPortrait';
+import PasterMyOlder from '../../common/components/pasterMyOlder';
 export default {
   onHide(){
   },
   onShow() {
   },
   components: {
-    ItemPortrait
+    ItemPortrait,PasterMyOlder
   },
   data () {
     return {
@@ -49,7 +51,23 @@ export default {
         text-align: center;
         .active-info{
           flex: auto;
+          display: flex;
           height: 35rpx;
+          align-items: center;
+          justify-content: center;
+          .icon{
+            margin: 0 15rpx;
+            width: 16rpx;
+            height: 21rpx;
+            background: no-repeat center;
+            background-size: contain;
+            &.icon-up{
+              background-image: var(--icon-up);
+            }
+            &.icon-down{
+              background-image: var(--icon-down);
+            }
+          }
         }
         .active-more{
           flex: none;

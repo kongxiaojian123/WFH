@@ -30,9 +30,10 @@
   background: var(--color-foreground);
   &.paster-personal{
      display: flex;
+     margin-bottom: 0;
      padding: 25rpx 25rpx 0 25rpx;
      flex-direction: column;
-      box-sizing: border-box;
+     box-sizing: border-box;
      background: var(--color-text);
      color: var(--color-tab-text);
    }
@@ -58,4 +59,24 @@
      background: var(--color-tab-text-selected) var(--icon-tick) no-repeat center;
      background-size: 21rpx 13rpx;
   }
+}
+.icon{
+  &.icon-order{background-image: var(--icon-order) !important;}
+  &.icon-filter{background-image: var(--icon-filter) !important;}
+  &.icon-broadcast{background-image: var(--icon-broadcast) !important;}
+  &.icon-shopcart{background-image: var(--icon-shopcart) !important;}
+  &.icon-shopcart-nothing{background-image: var(--icon-shopcart-nothing) !important;}
+  &.icon-close{background-image: var(--icon-close) !important;}
+  &.icon-tick{background-image: var(--icon-tick) !important;}
+  &.icon-location{background-image: var(--icon-location) !important;}
+  &.icon-up{background-image: var(--icon-up) !important;}
+  &.icon-down{background-image: var(--icon-down) !important;}
+  &.icon-code{background-image: var(--icon-code) !important;}
+  &.icon-coupon{background-image: var(--icon-coupon) !important;}
+  &.icon-delivery{background-image: var(--icon-delivery) !important;}
+  &.icon-help{background-image: var(--icon-help) !important;}
+  &.icon-info{background-image: var(--icon-info) !important;}
+  &.icon-obligation{background-image: var(--icon-obligation) !important;}
+  &.icon-received{background-image: var(--icon-received) !important;}
+  &.icon-vip{background-image: var(--icon-vip) !important;}
 }
