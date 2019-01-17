@@ -4,7 +4,7 @@
       <ItemPortrait :info="{}" />
       <div class="item-active">
         <p class="active-info"><span>本月活跃值: 89</span><span class="icon icon-up"></span><span>(返利权重???)</span></p>
-        <p class="active-more">详细评分</p>
+        <p class="active-more" @click="pageTo('rank')">详细评分</p>
       </div>
     </div>
     <PasterMyOlder />
@@ -29,6 +29,11 @@ export default {
     }
   },
   methods: {
+    pageTo(id){
+      wx.navigateTo({
+        url:`/pages/${id}/main`
+      });
+    }
   },
 }
 </script>

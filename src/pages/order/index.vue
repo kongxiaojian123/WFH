@@ -2,7 +2,7 @@
   <div class="container">
     <my-address :addsData="addsData"/>
     <div class="good-list">
-      <div class="item-good" v-for="(item,index) of shopping_check">
+      <div class="item-good" v-for="(item,index) of shopping_check" :key="index">
         <span class="item-image" :style="{'background-image':'url('+item.product_img+')'}"></span>
         <item-info :type="4" :info="item"/>
         <span class="item-num">x{{item.num}}</span>
