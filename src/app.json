@@ -5,7 +5,8 @@
     "pages/goods/main",
     "pages/order/main",
     "pages/personal/main",
-    "pages/rank/main"
+    "pages/rank/main",
+    "pages/coupon/main"
   ],
   "window":{
     "backgroundColor":"#f1f1f1",
