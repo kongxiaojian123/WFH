@@ -6,6 +6,7 @@
     "pages/order/main",
     "pages/personal/main",
     "pages/rank/main",
+    "pages/userInfo/main",
     "pages/coupon/main"
   ],
   "window":{

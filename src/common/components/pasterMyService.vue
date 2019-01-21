@@ -9,7 +9,7 @@
       <div class="item"><span class="icon icon-location"></span><span>地址管理</span></div>
       <div class="item" @click="pageTo('coupon')"><span class="icon icon-coupon"></span><span>优惠劵</span></div>
       <div class="item"><span class="icon icon-help"></span><span>帮助与客服</span></div>
-      <div class="item"><span class="icon icon-info"></span><span>账户信息</span></div>
+      <div class="item" @click="pageTo('userInfo')"><span class="icon icon-info"></span><span>账户信息</span></div>
     </div>
   </div>
 </template>
