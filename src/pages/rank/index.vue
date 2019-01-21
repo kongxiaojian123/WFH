@@ -31,9 +31,9 @@ import ItemPortrait from '../../common/components/itemPersonPortrait';
 import PasterMyOlder from '../../common/components/pasterMyOlder';
 import PasterMyService from '../../common/components/pasterMyService';
 export default {
-  onHide(){
+  onUnload(){
   },
-  onShow() {
+  onLoad () {
   },
   components: {
     ItemPortrait,PasterMyOlder,PasterMyService
