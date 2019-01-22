@@ -16,7 +16,7 @@
       </div>
       <div class="item">
         <p>手机号</p>
-        <p>1858501990 ></p>
+        <p><span class="red">1858501990</span> ></p>
       </div>
       <div class="item">
         <p>地区</p>
@@ -24,7 +24,10 @@
       </div>
     </div>
     <div class="paster paster-authentication">
-      <p class="title">实名认证</p>
+      <div class="title">
+        <p>实名认证</p>
+        <p><span class="red">去认证</span> ></p>
+      </div>
       <div class="item">
         <div class="authentication-info">
           <p>真实姓名:许多肉</p>
@@ -95,10 +98,23 @@ export default {
         }
         >p:last-child{
           color: var(--color-text-sub);
+          .red{
+            color: var(--color-text-selected);
+          }
         }
       }
     }
     .paster-authentication{
+      .title{
+        display: flex;
+        justify-content: space-between;
+        >p:last-child{
+          color: var(--color-text-sub);
+          .red{
+            color: var(--color-text-selected);
+          }
+        }
+      }
       .item{
         padding: 20rpx 10rpx 30rpx;
         .authentication-info{
