@@ -79,4 +79,5 @@
   &.icon-obligation{background-image: var(--icon-obligation) !important;}
   &.icon-received{background-image: var(--icon-received) !important;}
   &.icon-vip{background-image: var(--icon-vip) !important;}
+  &.icon-authentication{background-image: var(--icon-authentication) !important;}
 }

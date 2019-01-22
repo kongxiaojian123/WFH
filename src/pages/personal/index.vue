@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="paster paster-personal">
-      <ItemPortrait :info="{}" />
+      <ItemPersonPortrait :info="{}" />
       <div class="item-active">
         <p class="active-info"><span>本月活跃值: 89</span><span class="icon icon-up"></span><span>(返利权重???)</span></p>
         <p class="active-more" @click="pageTo('rank')">详细评分</p>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ItemPortrait from '../../common/components/itemPersonPortrait';
+import ItemPersonPortrait from '../../common/components/itemPersonPortrait';
 import PasterMyOlder from '../../common/components/pasterMyOlder';
 import PasterMyService from '../../common/components/pasterMyService';
 export default {
@@ -22,7 +22,7 @@ export default {
   onShow() {
   },
   components: {
-    ItemPortrait,PasterMyOlder,PasterMyService
+    ItemPersonPortrait,PasterMyOlder,PasterMyService
   },
   data () {
     return {
