@@ -43,6 +43,7 @@ export default {
       width: 100%;
       display: flex;
       justify-content: space-around;
+      z-index: 100;
       .item{
         position: relative;
         line-height: 60rpx;

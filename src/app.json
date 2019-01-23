@@ -7,6 +7,7 @@
     "pages/personal/main",
     "pages/rank/main",
     "pages/userInfo/main",
+    "pages/find/main",
     "pages/coupon/main"
   ],
   "window":{
@@ -27,7 +28,7 @@
         "selectedIconPath": "static/icon_home_selected.png"
       },
       {
-        "pagePath": "pages/index/main",
+        "pagePath": "pages/find/main",
         "text": "发现",
         "iconPath": "static/icon_find.png",
         "selectedIconPath": "static/icon_find_selected.png"
