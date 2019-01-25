@@ -31,7 +31,7 @@
   &.paster-personal{
      display: flex;
      margin-bottom: 0;
-     padding: 25rpx 25rpx 0 25rpx;
+     padding: 25rpx 25rpx 0;
      flex-direction: column;
      box-sizing: border-box;
      background: var(--color-text);
@@ -80,4 +80,6 @@
   &.icon-received{background-image: var(--icon-received) !important;}
   &.icon-vip{background-image: var(--icon-vip) !important;}
   &.icon-authentication{background-image: var(--icon-authentication) !important;}
+  &.icon-eye-open{background-image: var(--icon-eye-open) !important;}
+  &.icon-eye-close{background-image: var(--icon-eye-close) !important;}
 }

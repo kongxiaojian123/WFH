@@ -4,6 +4,7 @@
     "pages/shopcart/main",
     "pages/goods/main",
     "pages/order/main",
+    "pages/rebate/main",
     "pages/personal/main",
     "pages/rank/main",
     "pages/userInfo/main",
@@ -34,7 +35,7 @@
         "selectedIconPath": "static/icon_find_selected.png"
       },
       {
-        "pagePath": "pages/index/main",
+        "pagePath": "pages/rebate/main",
         "text": "返现",
         "iconPath": "static/icon_rebate.png",
         "selectedIconPath": "static/icon_rebate_selected.png"

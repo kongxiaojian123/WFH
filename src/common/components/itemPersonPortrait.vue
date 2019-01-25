@@ -31,6 +31,8 @@
     position: relative;
     display: flex;
     align-items: center;
+    align-self: flex-start;
+    color: var(--color-tab-text);
     .portrait{
       width: 80rpx;
       height: 80rpx;
