@@ -24,6 +24,11 @@
   text-align: center;
   border-radius: 10rpx;
 }
+.view{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 .paster{
   position: relative;
   margin-bottom: 10rpx;

@@ -5,7 +5,7 @@
       <div class="item-money-total">
         <div class="item-money">
           <p class="money">{{showMoney?'80000.00':'*****'}}</p>
-          <span class="icon" :class="{'icon-eye-open':showMoney,'icon-eye-close':!showMoney}" @click="showMoney=!showMoney"></span>
+          <span class="icon" :class="{'icon-eye-open':showMoney,'icon-eye-close':!showMoney}" @click="setShowMoney"></span>
         </div>
         <p class="text-explain">可提现余额（元）</p>
       </div>
@@ -38,14 +38,17 @@
       ItemPersonPortrait
     },
     props: [
-      'info'
+      'info',
+      'showMoney'
     ],
     data () {
       return {
-        showMoney:true,
       }
     },
     methods: {
+      setShowMoney() {
+        this.$emit('setShowMoney',!this.showMoney);
+      }
     }
   }
 </script>
@@ -60,23 +63,29 @@
     padding: 25rpx 25rpx 0;
     box-sizing: border-box;
     background: var(--color-text);
+    margin-bottom: 0;
+    overflow: hidden;
     .item-money-main{
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      /*justify-content: space-around;*/
       align-self: normal;
       margin: 40rpx 35rpx 0rpx;
       .item-money-total{
+        flex:auto;
+        width: 60%;
         position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /*align-items: center;*/
         justify-content: space-between;
         align-self: center;
         padding-right: 60rpx;
+        box-sizing: border-box;
         .item-money{
           position: relative;
+          align-self: center;
           .money{
             font-size: 50rpx;
             text-align: center;
@@ -113,10 +122,12 @@
         }
       }
       .item-money-history{
+        flex:auto;
+        width: 40%;
         position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /*align-items: center;*/
         justify-content: space-between;
         align-self: normal;
         .item-money-prev{
@@ -129,13 +140,12 @@
           align-items: center;
           .money{
             text-align: center;
-            align-self: normal;
             font-size: 30rpx;
             white-space: nowrap;
             color: var(--color-tab-text);
           }
           .text-explain{
-            align-self: normal;
+            text-align: center;
             margin: 15rpx 0rpx 0rpx;
             font-size: 20rpx;
             white-space: nowrap;
