@@ -11,11 +11,13 @@
 <script>
   import echarts from '../js/echarts.min';
   import WxCanvas from '../js/WxCanvas';
-  let chart;
+  let chart,canvasBounds;
   export default {
     onUnload(){
     },
     onLoad () {
+    },
+    mounted(){
       this.initChart();
     },
     components: {
@@ -28,21 +30,32 @@
       }
     },
     methods: {
+      getCanvasBounds(next){
+        const query = wx.createSelectorQuery();
+        query.select('.view-data').boundingClientRect(res => {
+          if(res){
+            canvasBounds = {
+              width:res.width,
+              height:res.height
+            };
+          }
+          next&&next();
+        }).exec();
+      },
       initChart(){
         const context = wx.createCanvasContext('view-data');
         const canvas = new WxCanvas(context,'view-data');
         echarts.setCanvasCreator(() => {
           return canvas;
         });
-        const query = wx.createSelectorQuery();
-        query.select('.view-data').boundingClientRect(res => {
+        this.getCanvasBounds(()=>{
           chart = echarts.init(canvas,null,{
-            width:res.width,
-            height:res.height,
+            width:canvasBounds.width,
+            height:canvasBounds.height,
           });
           canvas.setChart(chart);
           this.setData();
-        }).exec();
+        });
       },
       setData(){
         var option = {
