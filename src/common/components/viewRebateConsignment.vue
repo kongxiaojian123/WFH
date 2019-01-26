@@ -9,10 +9,7 @@
       <div class="head">
         <p class="title">下单详情</p>
         <div class="right">
-          <div class="search">
-            <input type="text">
-            <icon type="search" size="24rpx"/>
-          </div>
+          <InputSearch @search="searchOrderGoods" />
           <p class="time">时间</p>
         </div>
       </div>
@@ -27,13 +24,14 @@
 <script>
   import PasterOrderData from './pasterOrderData';
   import ItemOrderGoods from './ItemOrderGoods';
+  import InputSearch from './inputSearch';
   export default {
     onUnload(){
     },
     onLoad () {
     },
     components: {
-      PasterOrderData,ItemOrderGoods
+      PasterOrderData,ItemOrderGoods,InputSearch
     },
     props: [
       'showMoney'
@@ -49,6 +47,9 @@
     mounted(){
     },
     methods: {
+      searchOrderGoods(search){
+        console.log(search);
+      }
     }
   }
 </script>
@@ -89,28 +90,6 @@
         .right{
           display: flex;
           align-items: center;
-          .search{
-            height: 40rpx;
-            line-height: 40rpx;
-            width: 200rpx;
-            border-radius: 20rpx;
-            margin-right: 20rpx;
-            border: 1rpx solid var(--color-tab-text);
-            display: flex;
-            align-items: center;
-            input{
-              height: 100%;
-              width: 155rpx;
-              padding-left: 10rpx;
-            }
-            icon{
-              height: 100%;
-              flex: auto;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          }
         }
         .time{
           position: relative;
