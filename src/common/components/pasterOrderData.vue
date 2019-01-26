@@ -16,9 +16,9 @@
     onUnload(){
     },
     onLoad () {
+      this.initChart();
     },
     mounted(){
-      this.initChart();
     },
     components: {
     },
@@ -43,6 +43,7 @@
         }).exec();
       },
       initChart(){
+        if(chart) echarts.dispose(chart);
         const context = wx.createCanvasContext('view-data');
         const canvas = new WxCanvas(context,'view-data');
         echarts.setCanvasCreator(() => {
