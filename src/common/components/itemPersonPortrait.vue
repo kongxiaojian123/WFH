@@ -1,7 +1,7 @@
 <template>
   <div class="item person-portrait">
-    <img class="portrait" :src="userInfo.avatarUrl" />
-    <p class="name">{{userInfo.nickName}}</p>
+    <img class="portrait" :src="avatarUrl" />
+    <p class="name">{{nickName}}</p>
     <p class="level">V1</p>
   </div>
 </template>
@@ -17,9 +17,16 @@
     props: [
       'info'
     ],
+    computed:{
+      nickName(){
+        return this.userInfo.nickName;
+      },
+      avatarUrl(){
+        return this.userInfo.avatarUrl;
+      }
+    },
     data () {
       return {
-        userInfo:{...this.userInfo}
       }
     },
     methods: {

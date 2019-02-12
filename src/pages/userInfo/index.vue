@@ -3,16 +3,16 @@
     <div class="paster paster-info">
       <p class="title">个人信息</p>
       <div class="item">
-        <img class="portrait" />
+        <img class="portrait" :src="avatarUrl"/>
         <p>修改头像 ></p>
       </div>
       <div class="item">
         <p>昵称</p>
-        <p>DOL8 ></p>
+        <p>{{nickName}} ></p>
       </div>
       <div class="item">
         <p>性别</p>
-        <p>女 ></p>
+        <p>{{sex}} ></p>
       </div>
       <div class="item">
         <p>手机号</p>
@@ -20,7 +20,7 @@
       </div>
       <div class="item">
         <p>地区</p>
-        <p>北京市 北京市 海淀区 ></p>
+        <p>{{area}} ></p>
       </div>
     </div>
     <div class="paster paster-authentication">
@@ -54,9 +54,27 @@ export default {
   components: {
     PasterCoupon
   },
+  computed:{
+    nickName(){
+      return this.userInfo.nickName;
+    },
+    avatarUrl(){
+      return this.userInfo.avatarUrl;
+    },
+    sex(){
+      switch(this.userInfo.gender){
+        case 0:return '';
+        case 1:return '男';
+        case 2:return '女';
+      }
+    },
+    area(){
+      return `${this.userInfo.province}${this.userInfo.city?(' '+this.userInfo.city):''}`;
+    }
+  },
   data () {
     return {
-      menuId:0
+      menuId:0,
     }
   },
   methods: {
@@ -94,7 +112,6 @@ export default {
           width: 60rpx;
           height: 60rpx;
           border-radius: 50%;
-          background: var(--color-text);
         }
         >p:last-child{
           color: var(--color-text-sub);
