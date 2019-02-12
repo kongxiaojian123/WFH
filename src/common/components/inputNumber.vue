@@ -25,6 +25,10 @@
         type: Number,
         default: 0
       },
+      min:{
+        type: Number,
+        default: 0
+      },
       initNum:{
         type: Number,
         default: 0
@@ -38,12 +42,12 @@
     watch:{
       num(val){
         const _val = val?val*1:0;
-        const min_val = Math.max(0,_val);
+        const min_val = Math.max(this.min,_val);
         const max_val = Math.min(this.max,_val);
         if(min_val!==_val){
           this.num = min_val;
         }else if(this.max&&max_val!==_val){
-            this.num = max_val;
+          this.num = max_val;
         }else{
           this.num = _val;
         }

@@ -13,22 +13,15 @@
       <div class="item-taste">
         <p class="title">口味</p>
         <div class="list-taste">
-          <span class="selected">啦啦啦</span>
-          <span>啦啦啦</span>
-          <span>啦啦啦啦啦啦</span>
-          <span>啦啦啦</span>
-          <span>啦啦啦啦啦啦</span>
-          <span>啦啦啦</span>
-          <span>啦啦啦</span>
-          <span>啦啦啦啦啦啦</span>
+          <span :class="{selected:item.tag_id === select_tag}" @click="select_tag = item.tag_id" v-for="(item,index) of info.item_specific[0].tag_arr" :key="index">{{item.tag}}</span>
         </div>
       </div>
       <div class="item-number">
         <p class="title">下单数量</p>
-        <input-number :max="0" @getNum="getNum"/>
+        <input-number @getNum="getNum"/>
       </div>
       <hr/>
-      <div class="btn-red btn-submit">加入购物车</div>
+      <div class="btn-red btn-submit" @click="submit">加入购物车</div>
       <!--</slot>-->
     </div>
   </div>
@@ -62,9 +55,17 @@
     data () {
       return {
         hide:false,
+        select_tag:this.info.item_specific[0].tag_arr[0].tag_id,
+        num:0,
       }
     },
     methods: {
+      submit(){
+        if(this.num){
+          console.log('提交');
+          this.clickClose();
+        }
+      },
       clickClose(){
         this.hide = true;
         setTimeout(()=>{
@@ -72,7 +73,7 @@
         },500);
       },
       getNum(num){
-        console.log(num);
+        this.num = num;
       }
     }
   }

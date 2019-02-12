@@ -57,11 +57,11 @@ export default {
             "category_id": "类别id",
             "tag_arr":[
               {
-                "tag_id":"标签id",
+                "tag_id":"0",
                 "tag":"巧克力味",
               },
               {
-                "tag_id":"标签id",
+                "tag_id":"1",
                 "tag":"香草味",
               },
             ]

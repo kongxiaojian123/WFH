@@ -3,7 +3,7 @@
     <span class="icon-unchecked" :class="{'checked':info.checked}" @click.stop="$emit('checkGood',index)"></span>
     <span class="item-image" :style="{'background-image':'url('+info.product_img+')'}"></span>
     <item-info :type="3" :info="info"/>
-    <input-number :initNum="info.num" @getNum="getNum"/>
+    <input-number :initNum="info.num" :min="1" @getNum="getNum"/>
   </div>
 </template>
 
