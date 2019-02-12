@@ -18,7 +18,7 @@
     components: {
       TipsBroadcast,SlideBanner,ListRecommend
     },
-    props: ['systemInfo'],
+    props: [],
     data () {
       return {
       }

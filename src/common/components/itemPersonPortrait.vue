@@ -1,7 +1,7 @@
 <template>
   <div class="item person-portrait">
-    <img class="portrait" />
-    <p class="name">DOL8</p>
+    <img class="portrait" :src="userInfo.avatarUrl" />
+    <p class="name">{{userInfo.nickName}}</p>
     <p class="level">V1</p>
   </div>
 </template>
@@ -19,6 +19,7 @@
     ],
     data () {
       return {
+        userInfo:{...this.userInfo}
       }
     },
     methods: {
@@ -37,7 +38,7 @@
       width: 80rpx;
       height: 80rpx;
       border-radius:50%;
-      background:var(--color-foreground);
+      /*background:var(--color-foreground);*/
     }
     .name{
       white-space: nowrap;

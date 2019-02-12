@@ -20,7 +20,7 @@
     components: {
       BarFilter, TipsBroadcast,ListGoods
     },
-    props: ['systemInfo'],
+    props: [],
     data () {
       return {
         //  排序类型 1-销量 2-高价格 3-低价格 4-新品
