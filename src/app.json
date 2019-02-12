@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/main",
     "pages/shopcart/main",
+    "pages/activity/main",
     "pages/goods/main",
     "pages/order/main",
     "pages/rebate/main",

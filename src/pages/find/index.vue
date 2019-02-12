@@ -6,31 +6,44 @@
       <p class="item" :class="{selected:menuId===2}" @click="menuId=2">新手入门</p>
     </div>
     <div class="main main-activity" v-if="menuId===0">
-      <p class="paster paster-activity" data-desc="优惠活动"></p>
-      <p class="paster paster-activity" data-desc="优惠活动"></p>
-      <p class="paster paster-activity" data-desc="优惠活动"></p>
-      <p class="paster paster-activity" data-desc="优惠活动"></p>
-      <p class="paster paster-activity" data-desc="优惠活动"></p>
+      <p class="paster paster-activity" data-desc="优惠活动" @click="pageTo('activity')"></p>
+      <p class="paster paster-activity" data-desc="优惠活动" @click="pageTo('activity')"></p>
+      <p class="paster paster-activity" data-desc="优惠活动" @click="pageTo('activity')"></p>
+      <p class="paster paster-activity" data-desc="优惠活动" @click="pageTo('activity')"></p>
+      <p class="paster paster-activity" data-desc="优惠活动" @click="pageTo('activity')"></p>
     </div>
-    <div class="main main-introduce" v-if="menuId===1"></div>
-    <div class="main main-novice" v-if="menuId===2"></div>
+    <div class="main main-introduce" v-if="menuId===1">
+      <ViewImage :imgList="introduceImage"></ViewImage>
+    </div>
+    <div class="main main-novice" v-if="menuId===2">
+      <ViewImage :imgList="noviceImage"></ViewImage>
+    </div>
   </div>
 </template>
 
 <script>
+import ViewImage from '../../common/components/viewImage'
 export default {
   onHide(){
   },
   onShow() {
   },
   components: {
+    ViewImage
   },
   data () {
     return {
       menuId:0,
+      introduceImage:['https://photo.16pic.com/00/04/73/16pic_473516_b.jpg','https://photo.16pic.com/00/04/73/16pic_473516_b.jpg','https://photo.16pic.com/00/04/73/16pic_473516_b.jpg'],
+      noviceImage:['https://photo.16pic.com/00/04/73/16pic_473516_b.jpg'],
     }
   },
   methods: {
+    pageTo(id,search=''){
+      wx.navigateTo({
+        url:`/pages/${id}/main${search}`
+      });
+    }
   },
 }
 </script>
