@@ -33,7 +33,6 @@ function getUserInfo() {
       lang:'zh_CN',
       success(res) {
         Vue.prototype.userInfo = res.userInfo;
-        console.log(res);
       }
     })
   }

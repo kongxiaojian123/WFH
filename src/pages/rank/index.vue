@@ -23,6 +23,7 @@
         </div>
       </div>
     </div>
+    <ViewImage :imgList="imgList"></ViewImage>
   </div>
 </template>
 
@@ -30,16 +31,18 @@
 import ItemPortrait from '../../common/components/itemPersonPortrait';
 import PasterMyOlder from '../../common/components/pasterMyOlder';
 import PasterMyService from '../../common/components/pasterMyService';
+import ViewImage from '../../common/components/viewImage'
 export default {
   onUnload(){
   },
   onLoad () {
   },
   components: {
-    ItemPortrait,PasterMyOlder,PasterMyService
+    ItemPortrait,PasterMyOlder,PasterMyService,ViewImage
   },
   data () {
     return {
+      imgList:['https://photo.16pic.com/00/04/73/16pic_473516_b.jpg']
     }
   },
   methods: {
@@ -50,6 +53,7 @@ export default {
 <style>
   .container{
     .paster-personal{
+      margin-bottom: 10rpx;
       .item-rank{
         display: flex;
         font-size: 18rpx;
