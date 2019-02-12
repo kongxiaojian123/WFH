@@ -8,6 +8,7 @@
     <paster-evaluate :info="goodData"/>
     <span class="icon icon-shopcart" @click="popupShopcart(true)"></span>
     <card-shopcart v-if="shopcart" :info="goodData" @close="popupShopcart"></card-shopcart>
+    <ViewImage :imgList="c_goodsImage"></ViewImage>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import ItemInfo from '../../common/components/itemInfo.vue';
 import pasterSpec from '../../common/components/pasterSpec.vue';
 import pasterEvaluate from '../../common/components/pasterEvaluate.vue';
 import CardShopcart from '../../common/components/cardShopcart.vue';
+import ViewImage from '../../common/components/viewImage'
 export default {
   onUnload(){
     this.popupShopcart(false);
@@ -25,7 +27,12 @@ export default {
   onLoad () {
   },
   components: {
-    SlideGoods,ItemInfo,pasterSpec,pasterEvaluate,CardShopcart
+    SlideGoods,ItemInfo,pasterSpec,pasterEvaluate,CardShopcart,ViewImage
+  },
+  computed:{
+    c_goodsImage(){
+      return ['https://photo.16pic.com/00/04/73/16pic_473516_b.jpg']
+    }
   },
   data () {
     return {
@@ -116,7 +123,7 @@ export default {
   }
   .icon-shopcart{
     position: fixed;
-    top: 75%;
+    top: 80%;
     right: 25rpx;
     width: 60rpx;
     height: 60rpx;
