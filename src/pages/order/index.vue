@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <my-address :addsData="addsData"/>
+    <ItemOrderAddress :addsData="addsData"/>
     <div class="good-list">
       <div class="item-good" v-for="(item,index) of shopping_check" :key="index">
         <span class="item-image" :style="{'background-image':'url('+item.product_img+')'}"></span>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import MyAddress from '../../common/components/address.vue';
+  import ItemOrderAddress from '../../common/components/itemOrderAddress.vue';
   import ItemInfo from '../../common/components/itemInfo.vue';
 export default {
   onHide(){
@@ -20,7 +20,7 @@ export default {
   onShow() {
   },
   components: {
-    MyAddress,
+    ItemOrderAddress,
     ItemInfo
   },
   data () {
@@ -29,6 +29,7 @@ export default {
         "user_name":"陈磊",
         "mobile":"1234566",
         "address":"北京市海淀区西北旺东路10号院中关村软件园二期西区7号楼",
+        default:true
       },
       "shopping_check":[
         {
