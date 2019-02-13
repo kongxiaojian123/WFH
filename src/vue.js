@@ -4,7 +4,17 @@ export default Vue;
 function initConfig() {
   Vue.prototype.systemInfo = wx.getSystemInfoSync();
   getUserInfo();
+  getUseAddress();
   Vue.config.productionTip = false;
+}
+function getUseAddress() {
+  Vue.prototype.useAddress=null;
+  wx.getStorage({
+    key: 'useAddress',
+    success(res) {
+      Vue.prototype.useAddress = JSON.parse(res.data);
+    }
+  })
 }
 function getSetting(next) {
   wx.getSetting({

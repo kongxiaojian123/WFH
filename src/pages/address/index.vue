@@ -19,6 +19,7 @@ export default {
     const historyPage = getCurrentPages();
     const search = historyPage[historyPage.length-1].options;
     this.type = search.type||0;
+    console.log(this.type);
   },
   components: {
     ItemAddress
@@ -88,6 +89,17 @@ export default {
     },
     setUseIndex(index){
       this.useIndex = index;
+      wx.setStorage({
+        key:'useAddress',
+        data:JSON.stringify(this.addressList[index]),
+        success(){
+          setTimeout(()=>{
+            wx.navigateBack({
+              delta: 1
+            })
+          },100);
+        }
+      });
     },
     getWechatAddress(){
       if(this.authSetting['scope.address']){

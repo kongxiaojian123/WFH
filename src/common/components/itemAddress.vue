@@ -149,6 +149,7 @@
         }
       }
       .address-select{
+        display: none;
         flex: none;
         align-self: center;
         width: 100rpx;
