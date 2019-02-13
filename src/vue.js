@@ -16,9 +16,7 @@ function getSetting(next) {
 }
 function getUserInfo() {
   getSetting(function (authSetting) {
-    if(authSetting['scope.userInfo']){
-      _getUserInfo();
-    }else{
+    if(authSetting['scope.userInfo']===undefined){
       wx.authorize({
         scope: 'scope.userInfo',
         success() {
@@ -26,14 +24,26 @@ function getUserInfo() {
           _getUserInfo();
         }
       })
+    }else{
+      _getUserInfo();
+      if(!authSetting['scope.userInfo']){
+        wx.openSetting({
+          success(res) {
+            Vue.prototype.authSetting = res.authSetting;
+            _getUserInfo();
+          }
+        });
+      }
     }
   });
   function _getUserInfo() {
-    wx.getUserInfo({
-      lang:'zh_CN',
-      success(res) {
-        Vue.prototype.userInfo = res.userInfo;
-      }
-    })
+    if(Vue.prototype.authSetting['scope.userInfo']){
+      wx.getUserInfo({
+        lang:'zh_CN',
+        success(res) {
+          Vue.prototype.userInfo = res.userInfo;
+        }
+      })
+    }
   }
 }

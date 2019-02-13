@@ -87,4 +87,6 @@
   &.icon-authentication{background-image: var(--icon-authentication) !important;}
   &.icon-eye-open{background-image: var(--icon-eye-open) !important;}
   &.icon-eye-close{background-image: var(--icon-eye-close) !important;}
+  &.icon-wechat{background-image: var(--icon-wechat) !important;}
+  &.icon-delete{background-image: var(--icon-delete) !important;}
 }
