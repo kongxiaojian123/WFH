@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="head">
-      <p class="add-btn"><span class="icon icon-location"></span>添加新地址</p>
+      <p class="add-btn" @click="pageTo('editAddress')"><span class="icon icon-location"></span>添加新地址</p>
       <p class="wechat-btn" @click="pageTo('wechat')"><span class="icon icon-wechat"></span>微信导入</p>
     </div>
     <div class="address-list">
@@ -19,7 +19,6 @@ export default {
     const historyPage = getCurrentPages();
     const search = historyPage[historyPage.length-1].options;
     this.type = search.type||0;
-    console.log(this.type);
   },
   components: {
     ItemAddress
