@@ -1,5 +1,5 @@
 <template>
-  <div v-if="goodData" class="container" @click="">
+  <div v-if="goodData" class="container">
     <slide-goods/>
     <item-info :type="2" :info="goodData">
       <p class="add-btn" @click="popupShopcart(true)">加入购物车</p>

@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/main",
     "pages/address/main",
+    "pages/invite/main",
     "pages/editAddress/main",
     "pages/shopcart/main",
     "pages/activity/main",
