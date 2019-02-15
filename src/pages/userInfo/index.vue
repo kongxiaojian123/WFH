@@ -4,23 +4,23 @@
       <p class="title">个人信息</p>
       <div class="item">
         <img class="portrait" :src="avatarUrl"/>
-        <p>修改头像 ></p>
+        <p style="opacity: 0;">修改头像 ></p>
       </div>
       <div class="item">
         <p>昵称</p>
-        <p>{{nickName}} ></p>
+        <p>{{nickName}}&nbsp;&nbsp;</p>
       </div>
       <div class="item">
         <p>性别</p>
-        <p>{{sex}} ></p>
+        <p>{{sex}}&nbsp;&nbsp;</p>
       </div>
-      <div class="item">
+      <div class="item" @click="showCardPhone=true">
         <p>手机号</p>
         <p><span class="red">1858501990</span> ></p>
       </div>
       <div class="item">
         <p>地区</p>
-        <p>{{area}} ></p>
+        <p>{{area}}&nbsp;&nbsp;</p>
       </div>
     </div>
     <div class="paster paster-authentication">
@@ -40,11 +40,13 @@
         </div>
       </div>
     </div>
+    <CardPhone v-if="showCardPhone" :type="bindPhone?1:0" @close="showCardPhone=false"></CardPhone>
   </div>
 </template>
 
 <script>
 import PasterCoupon from '../../common/components/pasterCoupon';
+import CardPhone from '../../common/components/cardPhone';
 export default {
   onUnload(){
     this.menuId = 0;
@@ -52,7 +54,7 @@ export default {
   onLoad () {
   },
   components: {
-    PasterCoupon
+    PasterCoupon,CardPhone
   },
   computed:{
     nickName(){
@@ -74,7 +76,9 @@ export default {
   },
   data () {
     return {
+      showCardPhone:false,
       menuId:0,
+      bindPhone:'',
     }
   },
   methods: {

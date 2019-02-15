@@ -1,7 +1,6 @@
 const fsm = wx.getFileSystemManager();
 const FILE_BASE_NAME = 'tempfile_base64_';
 let id = 0;
-
 const base64src = function(base64data) {
   return new Promise((resolve, reject) => {
     const [, format, bodyData] = /data:image\/(\w+);base64,(.*)/.exec(base64data) || [];
