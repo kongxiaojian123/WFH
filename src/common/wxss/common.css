@@ -1,3 +1,6 @@
+page,._input{
+  font-family: Arial, Helvetica, sans-serif;
+}
 ._hr{
   height: 1rpx;
   background: var(--color-card-border);
