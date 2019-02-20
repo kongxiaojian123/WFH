@@ -1,3 +1,8 @@
+page{
+  font-size: 26rpx;
+  background: var(--color-background);
+  color: var(--color-text);
+}
 page,._input{
   font-family: Arial, Helvetica, sans-serif;
 }
