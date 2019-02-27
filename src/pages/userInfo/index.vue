@@ -16,7 +16,7 @@
       </div>
       <div class="item" @click="showCardPhone=true">
         <p>手机号</p>
-        <p><span class="red">1858501990</span> ></p>
+        <p><span class="red">{{bindPhone}}</span> ></p>
       </div>
       <div class="item">
         <p>地区</p>
@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <CardPhone v-if="showCardPhone" :type="bindPhone?1:0" @close="showCardPhone=false"></CardPhone>
+    <CardPhone v-if="showCardPhone" :bindPhone="bindPhone" @setPhone="setPhone" @close="showCardPhone=false"></CardPhone>
   </div>
 </template>
 
@@ -78,10 +78,13 @@ export default {
     return {
       showCardPhone:false,
       menuId:0,
-      bindPhone:'',
+      bindPhone:'13683681334',
     }
   },
   methods: {
+    setPhone(phone){
+      this.bindPhone = phone;
+    },
     pageTo(id){
     }
   },

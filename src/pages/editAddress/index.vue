@@ -2,12 +2,12 @@
   <div class="container">
     <div class="address-form">
       <p class="title">地址信息</p>
-      <input type="text" name="name" class="name" v-model="user_name" placeholder-class="input-placeholder" placeholder="收货人姓名"/>
-      <input type="number" name="tel" class="tel" v-model="mobile" maxlength="11" placeholder-class="input-placeholder" placeholder="手机号码"/>
+      <input type="text" name="name" class="name" v-model="user_name" placeholder="收货人姓名"/>
+      <input type="number" name="tel" class="tel" v-model="mobile" maxlength="11" placeholder="手机号码"/>
       <picker mode="region" @change="regionChange" :value="region">
-        <input type="text" name="area" class="area" :value="c_region" disabled="true" placeholder-class="input-placeholder" placeholder="所在地区"/>
+        <input type="text" name="area" class="area" :value="c_region" disabled="true" placeholder="所在地区"/>
       </picker>
-      <input type="text" name="detail" class="detail" v-model="detail" placeholder-class="input-placeholder" placeholder="详细地址"/>
+      <input type="text" name="detail" class="detail" v-model="detail" placeholder="详细地址"/>
       <div class="address-ctr">
         <p class="btn default-btn" @click="isDefault = !isDefault"><span class="icon icon-unchecked" :class="{'checked':isDefault}"></span>默认地址</p>
         <p class="btn delete-btn" @click="deleteClick"><span class="icon icon-delete"></span>清空当前信息</p>
@@ -15,7 +15,7 @@
     </div>
     <div class="address-parse">
       <p class="title">智能填写地址</p>
-      <textarea name="parse-text" class="parse-text" @confirm="parseStart" @blur="parseStart" v-model="textareaText" placeholder-class="input-placeholder" placeholder="请在这里直接粘贴地址信息,可自动识别拆分"></textarea>
+      <textarea name="parse-text" class="parse-text" @confirm="parseStart" @blur="parseStart" v-model="textareaText" placeholder="请在这里直接粘贴地址信息,可自动识别拆分"></textarea>
     </div>
     <p class="btn btn-submit">保存</p>
   </div>
@@ -81,9 +81,6 @@ page{
 .container{
   input,textarea{
     font-size: 24rpx;
-    color: var(--color-text-sub);
-  }
-  .input-placeholder{
     color: var(--color-text-sub);
   }
   .address-form{
