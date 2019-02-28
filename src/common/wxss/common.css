@@ -54,6 +54,17 @@ page,._input{
      color: var(--color-tab-text);
    }
 }
+.tag{
+  line-height: 20rpx;
+  font-size: 20rpx;
+  border-radius: 8rpx;
+  padding: 8rpx;
+  white-space: nowrap;
+  color: var(--color-foreground);
+  &.tag-red{
+     background: var(--color-tab-text-selected);
+  }
+}
 .icon-unchecked{
   position: relative;
   flex: none;

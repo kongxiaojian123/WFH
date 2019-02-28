@@ -144,6 +144,7 @@
             flex:none;
             align-self: flex-start;
             opacity: 0.5;
+            padding-left: 5rpx;
             transform: translateY(-10rpx) scaleY(2);
           }
         }

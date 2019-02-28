@@ -38,11 +38,12 @@
     > div{
       display: flex;
       flex-direction: column;
-      padding: 30rpx;
+      padding: 25rpx;
     }
     .list-preferential{
+      padding-bottom: 20rpx;
       > p{
-        padding-top: 30rpx;
+        padding-top: 20rpx;
         color: var(--color-text-sub);
       }
       &:before{
@@ -50,10 +51,12 @@
         font-weight: bold;
         font-size: 28rpx;
         line-height: 28rpx;
+        padding-bottom: 10rpx;
       }
     }
     .list-summarize{
       position: relative;
+      padding-bottom: 30rpx;
       &:before{
         content: '';
         position: absolute;

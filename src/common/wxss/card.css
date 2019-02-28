@@ -33,10 +33,10 @@
     .close-btn{
       position: absolute;
       top: 10rpx;
-      right: 20rpx;
+      right: 30rpx;
       width: 60rpx;
       height: 60rpx;
-      background: var(--icon-close) no-repeat right 10rpx;
+      background: var(--icon-close) no-repeat right 20rpx;
       background-size: 30rpx 30rpx;
     }
   }
