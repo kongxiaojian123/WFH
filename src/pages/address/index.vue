@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import Vue from 'vue';
   import ItemAddress from '../../common/components/itemAddress';
 export default {
   onHide(){
@@ -56,7 +57,7 @@ export default {
             if(!this.authSetting['scope.address']){
               wx.openSetting({
                 success:(res)=>{
-                  this.authSetting = res.authSetting;
+                  Vue.prototype.authSetting = res.authSetting;
                   this.getWechatAddress();
                 }
               });

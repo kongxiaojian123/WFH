@@ -4,7 +4,7 @@
       <span class="close-btn" @click="clickClose"></span>
       <input type="number" v-model.trim="phone" maxlength="11" class="item item-phone" placeholder="请输入手机号"/>
       <div class="item item-validate">
-        <input type="text" v-model.trim="validateText" maxlength="6" confirm-type="done" :placeholder="validateFlag?'已发送，请输入验证码':'点击获取验证码'" @confirm="submitValidate"/>
+        <input v-model.trim="validateText" maxlength="6" :placeholder="validateFlag?'已发送，请输入验证码':'点击获取验证码'" @confirm="submitValidate"/>
         <span class="btn" v-if="validate>=0" :class="{disable:validate}" @click="getValidate">{{validate?(validate+'s重发'):'获取验证码'}}</span>
         <span class="icon icon-authentication" v-else></span>
       </div>

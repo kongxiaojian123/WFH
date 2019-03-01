@@ -19,8 +19,8 @@
       <div class="item item-invoice" @click="clickInvoice">
         <p class="title">发票</p>
         <div class="right">
-          <p class="text">电子发票-企业--金吉鸟健身中心</p>
-          <switch @change="switchInvoice" @click.stop color="#ff4b57"/>
+          <p class="text">{{invoiceData}}</p>
+          <switch @change="switchInvoice" @click.stop color="#ff4b57" :checked="invoiceChecked"/>
         </div>
       </div>
       <div class="item item-transport" @click="clickTransport">
@@ -36,6 +36,7 @@
       <p class="total-money">需要支付金额:1385.00 <span class="freight">(含运费: 0.00)</span></p>
       <span class="btn btn-complete" @click="clickBill">确认</span>
     </div>
+    <CardInvoice v-if="ShowCardInvoice" :postAddress="addsData" @getInvoiceData="getInvoiceData" @close="ShowCardInvoice=false"></CardInvoice>
   </div>
 </template>
 
@@ -43,6 +44,7 @@
   import ItemOrderAddress from '../../common/components/itemOrderAddress.vue';
   import ItemInfo from '../../common/components/itemInfo.vue';
   import PasterPreferential from '../../common/components/pasterPreferential.vue';
+  import CardInvoice from '../../common/components/cardInvoice.vue';
 export default {
   onHide(){
   },
@@ -51,7 +53,8 @@ export default {
   components: {
     ItemOrderAddress,
     ItemInfo,
-    PasterPreferential
+    PasterPreferential,
+    CardInvoice
   },
   data () {
     return {
@@ -95,16 +98,33 @@ export default {
         "end_time":"截止时间",
         }]
       },
-      invoiceFlag:false,
+      invoiceChecked:false,//swicth invoice state
+      ShowCardInvoice:false,
+      invoiceData:'回回回回回回',
+    }
+  },
+  watch:{
+    ShowCardInvoice(val){
+      if(!val){
+        if(!this.invoiceData){
+          this.invoiceChecked = false;
+        }
+      }
     }
   },
   methods: {
+    getInvoiceData(invoiceData){
+      this.invoiceData = invoiceData;
+    },
     clickCoupon(){},
     clickInvoice(){
-      console.log(1);
+      this.ShowCardInvoice = true;
     },
     switchInvoice(e){
-      this.invoiceFlag = e.target.value;
+      this.invoiceChecked = e.target.value;
+      if(e.target.value&&!this.invoiceData){
+        this.clickInvoice();
+      }
     },
     clickTransport(){},
   },
@@ -160,9 +180,11 @@ export default {
       margin-bottom: 10rpx;
       background: var(--color-foreground);
       switch{
+        position: relative;
+        top: -2rpx;
         width:50rpx;
         height:26rpx;
-        padding: 20rpx 0 20rpx 10rpx;
+        padding: 15rpx 0 15rpx 10rpx;
       }
       >>> .wx-switch-input{
         width:50rpx;

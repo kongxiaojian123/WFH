@@ -30,6 +30,21 @@
     background: var(--color-foreground);
     border-radius: 8rpx 8rpx 0 0;
     animation:popIn 0.5s ease-in-out forwards;
+    &[data-title]{
+      padding-top:100rpx;
+      &:before{
+         content: attr(data-title);
+         position: absolute;
+         font-weight: bold;
+         top: 10rpx;
+         left: 20rpx;
+         right: 20rpx;
+         height: 75rpx;
+         line-height: 75rpx;
+         border-bottom: 1rpx solid var(--color-tab-text);
+         pointer-events: none;
+      }
+    }
     .close-btn{
       position: absolute;
       top: 10rpx;
