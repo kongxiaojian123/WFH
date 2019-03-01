@@ -115,6 +115,7 @@ export default {
   methods: {
     getInvoiceData(invoiceData){
       this.invoiceData = invoiceData;
+      this.invoiceChecked = true;
     },
     clickCoupon(){},
     clickInvoice(){
