@@ -20,18 +20,21 @@
           <p class="task-ins">
             <span class="live-name">{{item.name}}</span>
             <span v-if="item.forever">(永久{{item.totalCount}}次)</span>
-            <span v-else>({{item.doneCount/item.totalCount}})</span>
+            <span v-else>({{item.doneCount}}&nbsp;/&nbsp;{{item.totalCount}})</span>
           </p>
-          <p class="task-process"></p>
+          <progress :percent="item.doneCount/item.totalCount*100" stroke-width="4" activeColor="#ff4b57" border-radius="8"/>
+          <!-- <div class="task-process">
+            <!-- <p :style="{width: item.doneCount/item.totalCount*100}"></p> -->
+          <!-- </div> -->
           <p class="task-val">
-            <span>活跃分值：{{item.singleIntegral}}分/次</span>
-            <span>累计分值：{{item.totalIntegral}}分</span>
+            <span class="left">活跃分值：{{item.singleIntegral}}分/次</span>
+            <span class="right">累计分值：{{item.totalIntegral}}分</span>
           </p>
         </div>
-        <span class="received" v-if="item.receive">
+        <span class="award-status received" v-if="item.receive">
           已领取
         </span>
-        <span class="noReceive" v-else>
+        <span class="award-status noReceive" v-else>
           未领取
         </span>
       </div>
@@ -61,7 +64,7 @@ export default {
           totalCount: 5,
           doneCount: 3,
           forever: true,
-          receive: false,
+          receive: true,
         },
           {
           name: '实名认证',
@@ -76,9 +79,13 @@ export default {
     }
   },
   computed: {
-    
+   
   },
   methods: {
+    getWidth(item) {
+      console.log(`${item.doneCount/item.totalCount*100}%`);
+      return `${item.doneCount/item.totalCount*100}%`
+    }
   },
 }
 </script>
@@ -88,7 +95,9 @@ export default {
   }
   .mouth-lively {
     display: flex;
-    margin-top: 35rpx;
+    height: 360rpx;
+    padding-top: 35rpx;
+    background: var(--color-foreground);
 
     .icon {
       color: var(--color-grey);
@@ -156,6 +165,81 @@ export default {
 
       }
     }
+  }
+  .task-list{
+    margin-top: 10rpx;
+    background: var(--color-foreground);
+  }
+  .task-item{
+    height: 145rpx;
+    display:flex;
+    align-items:center;
+    position: relative;
+    padding: 0 30rpx 0 55rpx;
+    border-bottom: 1rpx solid var(--color-light-grey);
+    .task-detail {
+      width: 520rpx;
+      float: left;
+      font-size: 20rpx;
+    }
+    .task-ins {
+      color: var(--color-grey);
+      margin-right: 10rpx;
+      margin-bottom: 5rpx;
+      span {
+
+      }
+    }
+    .live-name {
+      margin-right: 15rpx;
+    }
+    /* .task-process {
+      width: 100%;
+      height: 8rpx;
+      position: relative;
+      border-radius: 4rpx;
+      background: var(--color-light-grey); */
+      /* p {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: 4rpx;
+        background: var(--color-text-selected);
+      } */
+    /* } */
+    .task-val {
+      color: var(--color-text-sub);
+      margin-top: 5rpx;
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+    }
+    .award-status {
+      width: 90rpx;
+      height: 29rpx;
+      border: 1rpx solid var(--color-grey);
+      color: var(--color-grey);
+      background: #ffffff;
+      font-size: 22rpx;
+      text-align: center;
+      line-height: 29rpx;
+      border-radius: 29rpx;
+      position:absolute;
+      right:30rpx;
+    }
+    .received {
+      background: var( --color-text-selected);
+      color: #ffffff;
+      border: 1rpx solid var(--color-text-selected);
+    }
+
+  }
+  .task-item:last-child {
+    border-bottom: none;
   }
 
 </style>
