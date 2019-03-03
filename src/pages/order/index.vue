@@ -19,7 +19,7 @@
       <div class="item item-invoice" @click="clickInvoice">
         <p class="title">发票</p>
         <div class="right">
-          <p class="text">{{invoiceData}}</p>
+          <p class="text">{{c_invoiceData}}</p>
           <switch @change="switchInvoice" @click.stop color="#ff4b57" :checked="invoiceChecked"/>
         </div>
       </div>
@@ -36,7 +36,7 @@
       <p class="total-money">需要支付金额:1385.00 <span class="freight">(含运费: 0.00)</span></p>
       <span class="btn btn-complete" @click="clickBill">确认</span>
     </div>
-    <CardInvoice v-if="ShowCardInvoice" :postAddress="addsData" @getInvoiceData="getInvoiceData" @close="ShowCardInvoice=false"></CardInvoice>
+    <CardInvoice v-if="ShowCardInvoice" :postAddress="invoiceData.address" :invoice="invoiceData.invoice" @getInvoiceData="getInvoiceData" @close="ShowCardInvoice=false"></CardInvoice>
   </div>
 </template>
 
@@ -46,7 +46,8 @@
   import PasterPreferential from '../../common/components/pasterPreferential.vue';
   import CardInvoice from '../../common/components/cardInvoice.vue';
 export default {
-  onHide(){
+  onUnload(){
+    this.ShowCardInvoice = false;
   },
   onShow() {
   },
@@ -100,21 +101,52 @@ export default {
       },
       invoiceChecked:false,//swicth invoice state
       ShowCardInvoice:false,
-      invoiceData:'回回回回回回',
+      invoiceData:{
+        address:{
+          type:0,
+          email:'',
+          "user_name":"陈磊",
+          "mobile":"1234566",
+          "address":"北京市海淀区西北旺东路10号院中关村软件园二期西区7号楼",
+        },
+        invoice:{
+          type:0,
+          title:'',
+          taxNumber:'',
+        }
+      },
     }
   },
   watch:{
     ShowCardInvoice(val){
       if(!val){
-        if(!this.invoiceData){
+        if(!this.c_invoiceData){
           this.invoiceChecked = false;
         }
       }
     }
   },
+  computed:{
+    c_invoiceData(){
+      if(this.invoiceData&&this.invoiceData.address&&this.invoiceData.invoice){
+        if(this.invoiceData.address.type===0&&!this.invoiceData.address.email) return '';
+        else if(this.invoiceData.address.type===1&&!(this.invoiceData.address.user_name&&this.invoiceData.address.mobile&&this.invoiceData.address.address))return '';
+        if(!this.invoiceData.invoice.title)return '';
+        if(this.invoiceData.invoice.type===0&&!this.invoiceData.invoice.taxNumber)return '';
+        let invoice = '';
+        invoice += this.invoiceData.address.type?'纸质发票(邮费:5.00元) - ':'电子发票 - ';
+        invoice += this.invoiceData.invoice.type?'个人 - ':'单位 - ';
+        invoice += this.invoiceData.invoice.title;
+        return invoice;
+      }else{
+        return '';
+      }
+    }
+  },
   methods: {
-    getInvoiceData(invoiceData){
-      this.invoiceData = invoiceData;
+    getInvoiceData(address,invoiceData){
+      this.invoiceData.address = address;
+      this.invoiceData.invoice = invoiceData;
       this.invoiceChecked = true;
     },
     clickCoupon(){},
@@ -123,7 +155,7 @@ export default {
     },
     switchInvoice(e){
       this.invoiceChecked = e.target.value;
-      if(e.target.value&&!this.invoiceData){
+      if(e.target.value&&!this.c_invoiceData){
         this.clickInvoice();
       }
     },
@@ -217,6 +249,16 @@ export default {
           .more{
             padding-left: 10rpx;
             color: var(--color-text-sub);
+          }
+        }
+      }
+      .item-invoice{
+        .right{
+          .text{
+            overflow:hidden;
+            max-width:500rpx;
+            white-space:nowrap;
+            text-overflow: ellipsis;
           }
         }
       }

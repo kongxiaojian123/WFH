@@ -6,15 +6,15 @@
         <div class="head">
           <p class="title">发票类型</p>
           <div class="select">
-            <p class="option" :class="{checked:invoiceType===0}" @click="invoiceType=0">电子发票</p>
-            <p class="option" :class="{checked:invoiceType===1}" @click="invoiceType=1">纸质发票</p>
+            <p class="option" :class="{checked:postData.type===0}" @click="postData.type=0">电子发票</p>
+            <p class="option" :class="{checked:postData.type===1}" @click="postData.type=1">纸质发票</p>
           </div>
         </div>
-        <div class="paster-item e-invoice" v-if="invoiceType===0">
+        <div class="paster-item e-invoice" v-if="postData.type===0">
           <p class="item desc">电子发票与纸质发票具有同等法律效力，可支持报销入账</p>
           <input type="text" class="item email" placeholder="请填写邮箱地址" v-model.trim="postData.email"/>
         </div>
-        <div class="paster-item paper-invoice" v-else-if="invoiceType===1">
+        <div class="paster-item paper-invoice" v-else-if="postData.type===1">
           <p class="item desc">需支付<span class="color-dark">5.00元邮寄费</span>,地址默认与收货地址一致,如需要修改请手动填写</p>
           <input type="text" class="item post-address" placeholder="请填写邮箱地址" v-model.trim="postData.address"/>
           <div class="item item-row">
@@ -48,7 +48,7 @@
           <p class="item desc">发票内容将显示详细商品名称与价格</p>
         </div>
       </div>
-      <p class="item item-remark">{{invoiceType?'发票将于确认收货后开具并邮寄':'发票将于确认收货后开具并发送到指定邮箱'}}</p>
+      <p class="item item-remark">{{postData.type?'发票将于确认收货后开具并邮寄':'发票将于确认收货后开具并发送到指定邮箱'}}</p>
       <div class="btn btn-submit" @click="submit">确&nbsp;&nbsp;认</div>
     </div>
   </div>
@@ -64,23 +64,24 @@
     },
     components: {
     },
-    props: ['postAddress'],
+    props: ['postAddress','invoice'],
     data () {
       const postData=Object.assign({
+        type:0,
         email:'',
         user_name:'',
         mobile:'',
         address:'',
       },this.postAddress);
+      const invoice=Object.assign({
+        type:0,
+        title:'',
+        taxNumber:'',
+      },this.invoice);
       return {
         hide:false,
-        invoiceType:0,
         postData:postData,
-        invoiceData:{
-          type:0,
-          title:'',
-          taxNumber:'',
-        },
+        invoiceData:invoice,
       }
     },
     watch:{
@@ -89,7 +90,7 @@
       checkContent(){
         //校验文字是否空缺
         return new Promise((resolve,reject) => {
-          if(this.invoiceType){
+          if(this.postData.type){
             if(!(
               this.postData.user_name&&
               this.postData.mobile&&
@@ -99,7 +100,7 @@
             reject('发票类型');
           }
           if(!this.invoiceData.title) reject('发票抬头');
-          if(this.invoiceData.type&&!this.postData.taxNumber){
+          if(this.invoiceData.type===0&&!this.invoiceData.taxNumber){
             reject('发票抬头');
           }
           resolve();
@@ -108,11 +109,7 @@
       submit(){
         //提交发票数据
         this.checkContent().then(()=>{
-          let invoiceData = '';
-          invoiceData+=this.invoiceType?'纸质发票-':'电子发票-';
-          invoiceData+=this.invoiceData.type?'个人--':'企业--';
-          invoiceData+=this.invoiceData.title;
-          this.$emit('getInvoiceData',invoiceData);
+          this.$emit('getInvoiceData',this.postData,this.invoiceData);
           this.clickClose();
         }).catch((msg)=>{
           wx.showToast({
@@ -126,6 +123,7 @@
           if(this.authSetting['scope.invoiceTitle']){
             wx.chooseInvoiceTitle({
               success:(res)=>{
+                res.type *=1;
                 this.invoiceData = res;
               }
             });
