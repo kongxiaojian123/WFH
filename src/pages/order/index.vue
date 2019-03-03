@@ -134,8 +134,8 @@ export default {
         if(!this.invoiceData.invoice.title)return '';
         if(this.invoiceData.invoice.type===0&&!this.invoiceData.invoice.taxNumber)return '';
         let invoice = '';
-        invoice += this.invoiceData.address.type?'纸质发票-':'电子发票-';
-        invoice += this.invoiceData.invoice.type?'个人--':'单位--';
+        invoice += this.invoiceData.address.type?'纸质发票(邮费:5.00元) - ':'电子发票 - ';
+        invoice += this.invoiceData.invoice.type?'个人 - ':'单位 - ';
         invoice += this.invoiceData.invoice.title;
         return invoice;
       }else{
@@ -249,6 +249,16 @@ export default {
           .more{
             padding-left: 10rpx;
             color: var(--color-text-sub);
+          }
+        }
+      }
+      .item-invoice{
+        .right{
+          .text{
+            overflow:hidden;
+            max-width:500rpx;
+            white-space:nowrap;
+            text-overflow: ellipsis;
           }
         }
       }
