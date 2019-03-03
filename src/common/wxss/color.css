@@ -15,4 +15,6 @@ view,page{
   --color-tips-text: var(--color-text-selected);
   --color-tab-text-selected: var(--color-text-selected);
   --color-tab-background: var(--color-text);
+  --color-grey: #5f687a;
+  --color-light-grey: #b5b8bf;
 }
