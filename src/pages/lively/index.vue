@@ -100,7 +100,6 @@ export default {
     background: var(--color-foreground);
 
     .icon {
-      color: var(--color-grey);
       font-size: 20.28rpx;
       display: flex;
       justify-content: center;
@@ -122,15 +121,29 @@ export default {
       align-items:center;
 
       .live-val-bg {
+        position: relative;
         width: 200rpx;
         height: 200rpx;
-        background: var(--color-grey);
+        background: var(--color-text);
         border-radius: 50%;
-        color: var(--color-light-grey);
+        color: var(--color-tab-text);
         font-size: 24rpx;
         display: flex;
         align-items: center;
         justify-content: center;
+        &:before{
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          width: 24rpx;
+          height: 24rpx;
+          margin-left: -12rpx;
+          margin-bottom: -10rpx;
+          border-radius: 0 0 8rpx 0;
+          background: var(--color-text);
+          transform:rotateZ(45deg);
+        }
       }
       .live-val {
         
@@ -151,15 +164,14 @@ export default {
       }
 
       .time{
-        color: var(--color-grey);
         font-size: 22rpx;
-        border: 1rpx solid var(--color-grey);
+        border: 1rpx solid var(--color-text);
         height: 30rpx;
         display: flex;
         align-items: center;
         padding: 0 30rpx;
         border-radius: 30rpx;
-        margin: 5rpx 0 10rpx;
+        margin: 20rpx 0 10rpx;
       }
       .explain {
 
@@ -176,14 +188,13 @@ export default {
     align-items:center;
     position: relative;
     padding: 0 30rpx 0 55rpx;
-    border-bottom: 1rpx solid var(--color-light-grey);
+    border-bottom: 1rpx solid var(--color-tab-text);
     .task-detail {
       width: 520rpx;
       float: left;
       font-size: 20rpx;
     }
     .task-ins {
-      color: var(--color-grey);
       margin-right: 10rpx;
       margin-bottom: 5rpx;
       span {
@@ -193,21 +204,6 @@ export default {
     .live-name {
       margin-right: 15rpx;
     }
-    /* .task-process {
-      width: 100%;
-      height: 8rpx;
-      position: relative;
-      border-radius: 4rpx;
-      background: var(--color-light-grey); */
-      /* p {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        border-radius: 4rpx;
-        background: var(--color-text-selected);
-      } */
-    /* } */
     .task-val {
       color: var(--color-text-sub);
       margin-top: 5rpx;
@@ -220,20 +216,17 @@ export default {
     }
     .award-status {
       width: 90rpx;
-      height: 29rpx;
-      border: 1rpx solid var(--color-grey);
-      color: var(--color-grey);
-      background: #ffffff;
+      line-height: 30rpx;
       font-size: 22rpx;
       text-align: center;
-      line-height: 29rpx;
-      border-radius: 29rpx;
+      border-radius: 8rpx;
       position:absolute;
       right:30rpx;
+      border: 1rpx solid var(--color-text);
     }
     .received {
       background: var( --color-text-selected);
-      color: #ffffff;
+      color: var(--color-foreground);
       border: 1rpx solid var(--color-text-selected);
     }
 
