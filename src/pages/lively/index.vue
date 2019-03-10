@@ -95,8 +95,7 @@ export default {
   }
   .mouth-lively {
     display: flex;
-    height: 360rpx;
-    padding-top: 35rpx;
+    padding: 35rpx 0;
     background: var(--color-foreground);
 
     .icon {
@@ -110,7 +109,6 @@ export default {
 
       }
       &.icon-right {
-
       }
 
     }
@@ -174,7 +172,9 @@ export default {
         margin: 20rpx 0 10rpx;
       }
       .explain {
-
+        span{
+          color: var(--color-tab-text);
+        }
       }
     }
   }
@@ -223,11 +223,12 @@ export default {
       position:absolute;
       right:30rpx;
       border: 1rpx solid var(--color-text);
+      box-sizing: border-box;
     }
     .received {
       background: var( --color-text-selected);
       color: var(--color-foreground);
-      border: 1rpx solid var(--color-text-selected);
+      border: none;
     }
 
   }
