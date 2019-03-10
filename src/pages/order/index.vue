@@ -26,7 +26,7 @@
       <div class="item item-transport" @click="clickTransport">
         <p class="title">配送方式</p>
         <div class="right">
-          <p class="text">顺丰到付</p>
+          <p class="text">{{expressType===0?'顺丰到付':'普通快递'}}</p>
           <span class="more">></span>
         </div>
       </div>
@@ -37,6 +37,7 @@
       <span class="btn btn-complete" @click="clickBill">确认</span>
     </div>
     <CardInvoice v-if="ShowCardInvoice" :postAddress="invoiceData.address" :invoice="invoiceData.invoice" @getInvoiceData="getInvoiceData" @close="ShowCardInvoice=false"></CardInvoice>
+    <CardExpress v-if="ShowCardExpress" :type="expressType" @setType="setExpressType" @close="ShowCardExpress=false"></CardExpress>
   </div>
 </template>
 
@@ -45,9 +46,11 @@
   import ItemInfo from '../../common/components/itemInfo.vue';
   import PasterPreferential from '../../common/components/pasterPreferential.vue';
   import CardInvoice from '../../common/components/cardInvoice.vue';
+  import CardExpress from '../../common/components/cardExpress.vue';
 export default {
   onUnload(){
     this.ShowCardInvoice = false;
+    this.ShowCardExpress = false;
   },
   onShow() {
   },
@@ -55,7 +58,8 @@ export default {
     ItemOrderAddress,
     ItemInfo,
     PasterPreferential,
-    CardInvoice
+    CardInvoice,
+    CardExpress,
   },
   data () {
     return {
@@ -65,7 +69,7 @@ export default {
         "address":"北京市海淀区西北旺东路10号院中关村软件园二期西区7号楼",
         default:true
       },
-      "shopping_check":[
+      shopping_check:[
         {
           "product_id": "产品id",
           "product_img": "https://photo.16pic.com/00/04/73/16pic_473516_b.jpg",
@@ -83,7 +87,7 @@ export default {
           "num": "12",
         },
       ],
-      "card_list": {
+      card_list: {
         'enable':[{    //可用优惠券
           "id":"优惠券id",
           "money":"优惠卷金额",
@@ -99,8 +103,10 @@ export default {
         "end_time":"截止时间",
         }]
       },
+      expressType:0,
       invoiceChecked:false,//swicth invoice state
       ShowCardInvoice:false,
+      ShowCardExpress:false,
       invoiceData:{
         address:{
           type:0,
@@ -159,7 +165,13 @@ export default {
         this.clickInvoice();
       }
     },
-    clickTransport(){},
+    clickTransport(){
+      this.ShowCardExpress = true;
+    },
+    setExpressType(val){
+      //快递方式
+      this.expressType = val;
+    }
   },
 }
 </script>
