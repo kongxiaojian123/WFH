@@ -38,6 +38,7 @@
     </div>
     <CardInvoice v-if="ShowCardInvoice" :postAddress="invoiceData.address" :invoice="invoiceData.invoice" @getInvoiceData="getInvoiceData" @close="ShowCardInvoice=false"></CardInvoice>
     <CardExpress v-if="ShowCardExpress" :type="expressType" @setType="setExpressType" @close="ShowCardExpress=false"></CardExpress>
+    <cardCoupon v-if="ShowCardCoupon" @close="ShowCardCoupon=false"></cardCoupon>
   </div>
 </template>
 
@@ -47,10 +48,12 @@
   import PasterPreferential from '../../common/components/pasterPreferential.vue';
   import CardInvoice from '../../common/components/cardInvoice.vue';
   import CardExpress from '../../common/components/cardExpress.vue';
+  import cardCoupon from '../../common/components/cardCoupon.vue';
 export default {
   onUnload(){
     this.ShowCardInvoice = false;
     this.ShowCardExpress = false;
+    this.ShowCardCoupon = false;
   },
   onShow() {
   },
@@ -60,6 +63,7 @@ export default {
     PasterPreferential,
     CardInvoice,
     CardExpress,
+    cardCoupon,
   },
   data () {
     return {
@@ -107,6 +111,7 @@ export default {
       invoiceChecked:false,//swicth invoice state
       ShowCardInvoice:false,
       ShowCardExpress:false,
+      ShowCardCoupon:false,
       invoiceData:{
         address:{
           type:0,
@@ -155,18 +160,20 @@ export default {
       this.invoiceData.invoice = invoiceData;
       this.invoiceChecked = true;
     },
-    clickCoupon(){},
+    clickCoupon(){
+      this.ShowCardCoupon = true;
+    },
     clickInvoice(){
       this.ShowCardInvoice = true;
+    },
+    clickTransport(){
+      this.ShowCardExpress = true;
     },
     switchInvoice(e){
       this.invoiceChecked = e.target.value;
       if(e.target.value&&!this.c_invoiceData){
         this.clickInvoice();
       }
-    },
-    clickTransport(){
-      this.ShowCardExpress = true;
     },
     setExpressType(val){
       //快递方式

@@ -1,11 +1,14 @@
 <template>
-  <div class="paster-coupon" :class="{disable:true}">
+  <div class="paster-coupon" :data-type="type" :class="{disable:disable}"  @click="checkCoupon">
     <p class="item-money"><span class="currency">￥</span>20</p>
     <div class="item-info">
       <p class="item-title">下单确认收货返现金红包</p>
       <p class="item-desc">即日起额2018.12.30前使用</p>
     </div>
-    <p class="btn">立即使用</p>
+    <template v-if="!disable">
+      <p class="btn" v-if="!type">立即使用</p>
+      <p class="icon-unchecked" :class="{checked:checked}" v-else-if="type===1"></p>
+    </template>
   </div>
 </template>
 
@@ -18,13 +21,21 @@
     components: {
     },
     props: [
-      'info'
+      'info',
+      'type'
     ],
     data () {
       return {
+        disable:false,
+        checked:false
       }
     },
     methods: {
+      checkCoupon(){
+        if(this.type===1&&!this.disable){
+          this.checked = !this.checked;
+        }
+      }
     }
   }
 </script>
@@ -38,13 +49,19 @@
     padding: 40rpx 50rpx 40rpx 0rpx;
     border: 1rpx solid var(--color-tab-text-selected);
     border-radius: 15rpx;
+    &[data-type="1"]{
+      .item-info{
+        width: 470rpx;
+      }
+      &.disable{
+        filter: grayscale(100%);
+      }
+    }
     &.disable{
       background: var(--color-tips-background-red);
       border-color: var(--color-text-sub);
       color: var(--color-text-sub);
-      .btn{
-        display: none;
-      }
+      pointer-events: none;
     }
     .item-money{
       width: 120rpx;
