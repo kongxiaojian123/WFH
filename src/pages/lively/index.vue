@@ -1,7 +1,7 @@
-<template>
+ <template>
   <div class="container">
     <div class="mouth-lively">
-      <i class="icon icon-left">l</i>
+      <i class="icon icon-left">{{'&lt;'}}</i>
       <div class="mouth-ins">
         <div class="live-val-bg">
           <div class="live-val">
@@ -79,7 +79,7 @@ export default {
     }
   },
   computed: {
-   
+
   },
   methods: {
     getWidth(item) {
@@ -144,21 +144,21 @@ export default {
         }
       }
       .live-val {
-        
-      } 
+
+      }
       .val {
         font-size: 36rpx;
 
       }
       .top {
         & i {
-          width: 15rpx;   
+          width: 15rpx;
           height: 26rpx;
           display: inline-block;
           background: var(--icon-up) no-repeat;
           background-position: center center;
           background-size: contain;
-        }    
+        }
       }
 
       .time{
